@@ -1,19 +1,18 @@
 #import "GFUser.h"
-#import "GFRep.h"
+#import "GFPoli.h"
 
 #import <Foundation/Foundation.h>
 
 @interface GFScript : NSObject
 
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,strong) NSString *content;
-@property (nonatomic,strong) NSString *ID;
+@property (nonatomic,strong,nonnull) NSString *title;
+@property (nonatomic,strong,nonnull) NSString *content;
 
 - (GFScript *)initWithDictionary:(NSDictionary *)dict;
 
-+ (void)storeScriptToServer:(GFScript *)script;
-
 + (void)fetchScriptWithID:(NSString *)ID
         completionHandler:(void(^_Nonnull)(GFScript *))completion;
+
++ (void)deleteScriptWithID:(NSString *)ID;
 
 @end
