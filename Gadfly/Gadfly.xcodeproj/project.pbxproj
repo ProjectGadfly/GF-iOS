@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAE1C11B1E83066B006BD384 /* LegislatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1C11A1E83066B006BD384 /* LegislatorCell.m */; };
+		AAE1C11E1E830B71006BD384 /* LegislatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1C11D1E830B71006BD384 /* LegislatorViewController.m */; };
+		AAE1C1211E830C1B006BD384 /* Legislator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1C1201E830C1B006BD384 /* Legislator.m */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
 		BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* ViewController.m */; };
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAE1C1191E83066B006BD384 /* LegislatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorCell.h; sourceTree = "<group>"; };
+		AAE1C11A1E83066B006BD384 /* LegislatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorCell.m; sourceTree = "<group>"; };
+		AAE1C11C1E830B71006BD384 /* LegislatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorViewController.h; sourceTree = "<group>"; };
+		AAE1C11D1E830B71006BD384 /* LegislatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorViewController.m; sourceTree = "<group>"; };
+		AAE1C11F1E830C1B006BD384 /* Legislator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Legislator.h; sourceTree = "<group>"; };
+		AAE1C1201E830C1B006BD384 /* Legislator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Legislator.m; sourceTree = "<group>"; };
 		BF65F2E61E8046F6007624E9 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +124,12 @@
 				BF65F2EF1E8046F6007624E9 /* ViewController.h */,
 				BF65F2F01E8046F6007624E9 /* ViewController.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
+				AAE1C11C1E830B71006BD384 /* LegislatorViewController.h */,
+				AAE1C11D1E830B71006BD384 /* LegislatorViewController.m */,
+				AAE1C1191E83066B006BD384 /* LegislatorCell.h */,
+				AAE1C11A1E83066B006BD384 /* LegislatorCell.m */,
+				AAE1C11F1E830C1B006BD384 /* Legislator.h */,
+				AAE1C1201E830C1B006BD384 /* Legislator.m */,
 				BF65F2F51E8046F6007624E9 /* Assets.xcassets */,
 				BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */,
 				BF65F2FA1E8046F6007624E9 /* Info.plist */,
@@ -298,10 +313,13 @@
 			files = (
 				BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */,
 				BF65F3251E804B6B007624E9 /* GFUser.m in Sources */,
+				AAE1C1211E830C1B006BD384 /* Legislator.m in Sources */,
+				AAE1C11E1E830B71006BD384 /* LegislatorViewController.m in Sources */,
 				BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */,
 				BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */,
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,
+				AAE1C11B1E83066B006BD384 /* LegislatorCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

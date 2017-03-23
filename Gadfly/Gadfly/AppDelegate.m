@@ -1,6 +1,8 @@
-
-
 #import "AppDelegate.h"
+#import "Legislator.h"
+#import "LegislatorViewController.h"
+
+#define max_legis 4
 
 @interface AppDelegate ()
 
@@ -8,9 +10,20 @@
 
 @implementation AppDelegate
 
+NSMutableArray *_legislators;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _legislators = [NSMutableArray arrayWithCapacity:max_legis];
+    
+    Legislator *legislator = [[Legislator alloc] init];
+    legislator.name = @"Joe Goodguy";
+    legislator.email = @"good@good.com";
+    legislator.phone = @"555-555-5555";
+    [_legislators addObject:legislator];
+    
+    LegislatorViewController *legController = (LegislatorViewController *)self.window.rootViewController;
+    legController.legislators = _legislators;
+    
     return YES;
 }
 
