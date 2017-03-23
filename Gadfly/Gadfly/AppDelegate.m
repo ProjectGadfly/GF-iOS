@@ -13,14 +13,18 @@
 NSMutableArray *_legislators;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //creating an array with specified capacity
     _legislators = [NSMutableArray arrayWithCapacity:MAX_LEGIS];
     
+    //making and initializing a Legislator object
     Legislator *legislator = [[Legislator alloc] init];
     legislator.name = @"Joe Goodguy";
     legislator.email = @"good@good.com";
     legislator.phone = @"555-555-5555";
+    //adds Legislator object to array
     [_legislators addObject:legislator];
     
+    //something related to transitions from pages
     LegislatorViewController *legController = (LegislatorViewController *)self.window.rootViewController;
     legController.legislators = _legislators;
     

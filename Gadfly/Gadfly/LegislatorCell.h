@@ -1,5 +1,8 @@
 #import <UIKit/UIKit.h>
 
+/* @file, creates a LegislatorCell, a subclass of the UITableViewCell
+   creates properties for each cell
+ */
 @interface LegislatorCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *legislator_photo;

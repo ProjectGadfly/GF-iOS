@@ -26,19 +26,29 @@
 
 #pragma mark - Table view data source
 
+/* @brief, checks size of legislator array
+   @return, number of legislators in legislator array or max size of array
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (NUM_LEGISLATORS < MAX_LEGIS) return NUM_LEGISLATORS;
     else return MAX_LEGIS;
 }
 
+/* @brief, supposed to count number of rows in a section that holds the data of a legislator
+   may be counting number of legislators in the array
+   TO FIX
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.legislators count];
 }
 
-
+/* @brief, gets first cell to display
+ */
 - (LegislatorCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //cell will be of type "LegislatorCell"
     LegislatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
+    //filling in information of legislator cell
     Legislator *legislator = (self.legislators)[indexPath.row];
     cell.legislator_name.text = legislator.name;
     cell.legislator_email.text = legislator.email;
@@ -47,6 +57,9 @@
     return cell;
 }
 
+/* @brief, setting cell height
+   Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return CELL_HEIGHT;
