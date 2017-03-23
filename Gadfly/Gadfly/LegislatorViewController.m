@@ -3,6 +3,7 @@
 #import "LegislatorCell.h"
 
 #define CELL_HEIGHT 120
+#define NUM_LEGISLATORS 4
 
 @interface LegislatorViewController ()
 
@@ -28,7 +29,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return NUM_LEGISLATORS;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
