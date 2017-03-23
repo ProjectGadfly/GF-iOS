@@ -27,8 +27,8 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if NUM_LEGISLATORS < 
-    return NUM_LEGISLATORS;
+    if (NUM_LEGISLATORS < MAX_LEGIS) return NUM_LEGISLATORS;
+    else return MAX_LEGIS;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
