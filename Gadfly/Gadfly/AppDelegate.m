@@ -1,8 +1,8 @@
 #import "AppDelegate.h"
 #import "Legislator.h"
 #import "LegislatorViewController.h"
+#import "ApplicationConstraints.h"
 
-#define max_legis 4
 
 @interface AppDelegate ()
 
@@ -13,7 +13,7 @@
 NSMutableArray *_legislators;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _legislators = [NSMutableArray arrayWithCapacity:max_legis];
+    _legislators = [NSMutableArray arrayWithCapacity:MAX_LEGIS];
     
     Legislator *legislator = [[Legislator alloc] init];
     legislator.name = @"Joe Goodguy";
