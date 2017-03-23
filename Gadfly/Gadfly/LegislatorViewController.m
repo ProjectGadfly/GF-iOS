@@ -2,6 +2,8 @@
 #import "Legislator.h"
 #import "LegislatorCell.h"
 
+#define CELL_HEIGHT 120
+
 @interface LegislatorViewController ()
 
 @end
@@ -43,6 +45,11 @@
     cell.legislator_phone.text = legislator.phone;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CELL_HEIGHT;
 }
 
 
