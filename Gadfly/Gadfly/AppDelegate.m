@@ -16,13 +16,31 @@ NSMutableArray *_legislators;
     //creating an array with specified capacity
     _legislators = [NSMutableArray arrayWithCapacity:MAX_LEGIS];
     
+    
+    
     //making and initializing a Legislator object
     Legislator *legislator = [[Legislator alloc] init];
-    legislator.name = @"Joe Goodguy";
-    legislator.email = @"good@good.com";
-    legislator.phone = @"555-555-5555";
+    legislator.name = @"Dick Durbin";
+    legislator.email = @"state_scheduler@durbin.senate.gov";
+    legislator.phone = @"202-224-2152";
     //adds Legislator object to array
     [_legislators addObject:legislator];
+    
+    //Esther's messing around
+    Legislator *legislator2 = [[Legislator alloc] init];
+    legislator2.name = @"Tammy Duckworth";
+    legislator2.email = @"scheduling@duckworth.senate.gov";
+    legislator2.phone = @"202-224-2854";
+    //adds Legislator object to array
+    [_legislators addObject:legislator2];
+    
+    Legislator *legislator3 = [[Legislator alloc] init];
+    legislator3.name = @"Tim Duckworth";
+    legislator3.email = @"scheduling@duckworth.senate.gov";
+    legislator3.phone = @"202-224-2854";
+    //adds Legislator object to array
+    [_legislators addObject:legislator3];
+     
     
     //something related to transitions from pages
     LegislatorViewController *legController = (LegislatorViewController *)self.window.rootViewController;

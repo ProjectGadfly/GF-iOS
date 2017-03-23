@@ -26,12 +26,11 @@
 
 #pragma mark - Table view data source
 
-/* @brief, checks size of legislator array
-   @return, number of legislators in legislator array or max size of array
+/* @brief, specifies number of times the cell is repeated
+   @return, 1 by default
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (NUM_LEGISLATORS < MAX_LEGIS) return NUM_LEGISLATORS;
-    else return MAX_LEGIS;
+    return 1;
 }
 
 /* @brief, supposed to count number of rows in a section that holds the data of a legislator
