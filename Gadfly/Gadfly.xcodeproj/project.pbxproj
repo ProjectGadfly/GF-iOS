@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
 		BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorsTableViewController.h; sourceTree = "<group>"; };
+		AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorsTableViewController.m; sourceTree = "<group>"; };
 		BF65F2E61E8046F6007624E9 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				BF65F2EF1E8046F6007624E9 /* ViewController.h */,
 				BF65F2F01E8046F6007624E9 /* ViewController.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
+				AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */,
+				AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */,
 				BF65F2F51E8046F6007624E9 /* Assets.xcassets */,
 				BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */,
 				BF65F2FA1E8046F6007624E9 /* Info.plist */,
@@ -302,6 +307,7 @@
 				BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */,
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,
+				AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
