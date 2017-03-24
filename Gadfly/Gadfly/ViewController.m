@@ -28,6 +28,7 @@
 
 - (IBAction)submitPressed:(id)sender {
     [self performSegueWithIdentifier:@"showLegislators" sender:self];
+    NSLog(@"button pressed");
 }
 
 
