@@ -2,7 +2,7 @@
 
 static const NSString *stateURL = @"http://127.0.0.1:5000/services/v1/getstate";
 static const NSString *federalURL = @"http://127.0.0.1:5000/services/v1/getfederal";
-static const NSString *apiKey = @"b9ae3e78eb1c94ee7d7c4cb0cfa0bd889e900f2abefdf75f418c79f133aee28f468f18194b3ce1cd54f1850c332d7b6fd096ee50068cc5cb542efd0bd07cd6f3";
+static const NSString *apiKey = @"";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFPoli
