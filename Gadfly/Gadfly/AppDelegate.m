@@ -1,7 +1,7 @@
 #import "AppDelegate.h"
 #import "Legislator.h"
 #import "LegislatorViewController.h"
-#import "ApplicationConstraints.h"
+#import "ApplicationConstraints.m"
 
 
 @interface AppDelegate ()
@@ -14,7 +14,7 @@ NSMutableArray *_legislators;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //creating an array with specified capacity
-    _legislators = [NSMutableArray arrayWithCapacity:MAX_LEGIS];
+    /*_legislators = [NSMutableArray arrayWithCapacity:MAX_LEGIS];
     
     
     
@@ -44,7 +44,7 @@ NSMutableArray *_legislators;
     
     //something related to transitions from pages
     LegislatorViewController *legController = (LegislatorViewController *)self.window.rootViewController;
-    legController.legislators = _legislators;
+    legController.legislators = _legislators;*/
     
     return YES;
 }

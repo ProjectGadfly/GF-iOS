@@ -41,6 +41,9 @@
                                 <rect key="frame" x="159" y="406" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <segue destination="m7K-sc-VI8" kind="push" id="p4W-3t-gLx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EAy-qW-jNl">
                                 <rect key="frame" x="127" y="444" width="120" height="30"/>
@@ -120,6 +123,7 @@
                             <outlet property="delegate" destination="m7K-sc-VI8" id="Jqd-b3-JgM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="F76-Be-byO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6E-de-xSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

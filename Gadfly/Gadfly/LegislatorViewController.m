@@ -1,7 +1,7 @@
 #import "LegislatorViewController.h"
 #import "Legislator.h"
 #import "LegislatorCell.h"
-#import "ApplicationConstraints.h"
+#import "ApplicationConstraints.m"
 
 @interface LegislatorViewController ()
 
