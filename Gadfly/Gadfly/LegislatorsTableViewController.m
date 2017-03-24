@@ -4,9 +4,13 @@
 
 @interface LegislatorsTableViewController ()
 
+@property (nonatomic, assign) id delegate;
+
 @end
 
 @implementation LegislatorsTableViewController
+
+@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +45,16 @@
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showLegislators"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        LegislatorsTableViewController *legislatorsTableViewController = [navigationController viewControllers][0];
+        legislatorsTableViewController.delegate = self;
+    }
 }
 
 

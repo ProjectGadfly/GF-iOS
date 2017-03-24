@@ -46,7 +46,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <segue destination="Dcw-0k-QtU" kind="show" id="1iI-R0-XOl"/>
+                                    <action selector="submitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ms8-CQ-Gwf"/>
+                                    <segue destination="Dcw-0k-QtU" kind="show" identifier="showLegislators" id="1iI-R0-XOl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAy-qW-jNl">

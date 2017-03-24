@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "Legislator.h"
 #import "LegislatorsTableViewController.h"
+#import "LegislatorTableViewCell.h"
 #import "ApplicationConstraints.m"
 
 @interface AppDelegate ()
@@ -12,7 +13,6 @@
 {
     NSMutableArray *_legislators;
 }
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -35,6 +35,8 @@
     
     //something related to transitions from pages
     LegislatorsTableViewController *legController = (LegislatorsTableViewController *)self.window.rootViewController;
+   // UINavigationController *navigationController = [UITabBarController viewControllers][0]; BUG HERE
+  //  LegislatorsTableViewController *playersViewController = [navigationController viewControllers][0]; BUG HERE
     legController.legislators = _legislators;
      */
     
