@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */; };
 		AAF9BE361E85C70900D0008A /* Legislator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE351E85C70900D0008A /* Legislator.m */; };
+		AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */; };
+		AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
 		BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* ViewController.m */; };
@@ -44,6 +46,9 @@
 		AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorsTableViewController.m; sourceTree = "<group>"; };
 		AAF9BE341E85C70900D0008A /* Legislator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Legislator.h; sourceTree = "<group>"; };
 		AAF9BE351E85C70900D0008A /* Legislator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Legislator.m; sourceTree = "<group>"; };
+		AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationConstraints.m; sourceTree = "<group>"; };
+		AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorTableViewCell.h; sourceTree = "<group>"; };
+		AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorTableViewCell.m; sourceTree = "<group>"; };
 		BF65F2E61E8046F6007624E9 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,15 +121,18 @@
 		BF65F2E81E8046F6007624E9 /* Gadfly */ = {
 			isa = PBXGroup;
 			children = (
+				AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */,
 				BF65F2EC1E8046F6007624E9 /* AppDelegate.h */,
 				BF65F2ED1E8046F6007624E9 /* AppDelegate.m */,
 				BF65F2EF1E8046F6007624E9 /* ViewController.h */,
 				BF65F2F01E8046F6007624E9 /* ViewController.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
+				AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */,
+				AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */,
 				AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */,
+				AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */,
 				AAF9BE341E85C70900D0008A /* Legislator.h */,
 				AAF9BE351E85C70900D0008A /* Legislator.m */,
-				AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */,
 				BF65F2F51E8046F6007624E9 /* Assets.xcassets */,
 				BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */,
 				BF65F2FA1E8046F6007624E9 /* Info.plist */,
@@ -309,7 +317,9 @@
 				BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */,
 				BF65F3251E804B6B007624E9 /* GFUser.m in Sources */,
 				BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */,
+				AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */,
 				BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */,
+				AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */,
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
 				AAF9BE361E85C70900D0008A /* Legislator.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,

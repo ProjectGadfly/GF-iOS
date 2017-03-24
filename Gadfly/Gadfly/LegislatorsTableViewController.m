@@ -1,4 +1,6 @@
 #import "LegislatorsTableViewController.h"
+#import "Legislator.h"
+#import "LegislatorTableViewCell.h"
 
 @interface LegislatorsTableViewController ()
 
@@ -24,24 +26,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.legislators count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
-    // Configure the cell...
-    
+    Legislator *legislator = (self.legislators)[indexPath.row];
+    cell.nameLabel.text = legislator.name;
+    cell.phoneLabel.text = legislator.phone;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

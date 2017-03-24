@@ -1,6 +1,7 @@
-
-
 #import "AppDelegate.h"
+#import "Legislator.h"
+#import "LegislatorsTableViewController.h"
+#import "ApplicationConstraints.m"
 
 @interface AppDelegate ()
 
@@ -8,12 +9,37 @@
 
 @implementation AppDelegate
 
+{
+    NSMutableArray *_legislators;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _legislators = [NSMutableArray arrayWithCapacity:legArraySize];
+    /*
+    Legislator *legislator = [[Legislator alloc] init];
+    legislator.name = @"Joe Goodguy";
+    legislator.phone = @"555-555-5555";
+    [_legislators addObject:legislator];
+    
+    legislator = [[Legislator alloc] init];
+    legislator.name = @"Sue Democrat";
+    legislator.phone = @"666-666-6666";
+    [_legislators addObject:legislator];
+    
+    legislator = [[Legislator alloc] init];
+    legislator.name = @"Rogue Politican";
+    legislator.phone = @"123-456-7899";
+    [_legislators addObject:legislator];
+    
+    //something related to transitions from pages
+    LegislatorsTableViewController *legController = (LegislatorsTableViewController *)self.window.rootViewController;
+    legController.legislators = _legislators;
+     */
+    
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,6 +66,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end
