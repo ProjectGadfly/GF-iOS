@@ -1,10 +1,10 @@
-#import "ViewController.h"
+#import "SplashPageViewController.h"
 
-@interface ViewController ()
+@interface SplashPageViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SplashPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

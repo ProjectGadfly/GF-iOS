@@ -1,6 +1,7 @@
 #import "LegislatorsTableViewController.h"
 #import "Legislator.h"
 #import "LegislatorTableViewCell.h"
+#import "ApplicationConstraints.m"
 
 @interface LegislatorsTableViewController ()
 
@@ -20,7 +21,33 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    self.legislators = [self getLegislatorData];
+    
 }
+
+- (NSMutableArray*) getLegislatorData
+{
+    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:legArraySize];
+    
+    Legislator *legislator = [[Legislator alloc] init];
+    legislator.name = @"Joe Goodguy";
+    legislator.phone = @"555-555-5555";
+    [legislators addObject:legislator];
+    
+    legislator = [[Legislator alloc] init];
+    legislator.name = @"Sue Democrat";
+    legislator.phone = @"666-666-6666";
+    [legislators addObject:legislator];
+    
+    legislator = [[Legislator alloc] init];
+    legislator.name = @"Rogue Politican";
+    legislator.phone = @"123-456-7899";
+    [legislators addObject:legislator];
+    
+    return legislators;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,6 +83,8 @@
         legislatorsTableViewController.delegate = self;
     }
 }
+
+
 
 /*
 - (void)setLegislators:(NSMutableArray *)legislators

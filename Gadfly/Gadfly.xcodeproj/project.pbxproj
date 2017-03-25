@@ -14,7 +14,7 @@
 		AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
-		BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* ViewController.m */; };
+		BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */; };
 		BF65F2F41E8046F6007624E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F21E8046F6007624E9 /* Main.storyboard */; };
 		BF65F2F61E8046F6007624E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F51E8046F6007624E9 /* Assets.xcassets */; };
 		BF65F3041E8046F6007624E9 /* GadflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3031E8046F6007624E9 /* GadflyTests.m */; };
@@ -55,8 +55,8 @@
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF65F2ED1E8046F6007624E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF65F2EF1E8046F6007624E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BF65F2F01E8046F6007624E9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BF65F2EF1E8046F6007624E9 /* SplashPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashPageViewController.h; sourceTree = "<group>"; };
+		BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashPageViewController.m; sourceTree = "<group>"; };
 		BF65F2F31E8046F6007624E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF65F2F51E8046F6007624E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF65F2FA1E8046F6007624E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 				AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */,
 				BF65F2EC1E8046F6007624E9 /* AppDelegate.h */,
 				BF65F2ED1E8046F6007624E9 /* AppDelegate.m */,
-				BF65F2EF1E8046F6007624E9 /* ViewController.h */,
-				BF65F2F01E8046F6007624E9 /* ViewController.m */,
+				BF65F2EF1E8046F6007624E9 /* SplashPageViewController.h */,
+				BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */,
 				AAA5B78C1E86DE7C004CD5FD /* GadflyAPI.h */,
 				AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
@@ -315,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */,
+				BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */,
 				BF65F3251E804B6B007624E9 /* GFUser.m in Sources */,
 				BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */,
 				AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */,
