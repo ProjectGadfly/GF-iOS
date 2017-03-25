@@ -3,6 +3,7 @@
 #import "LegislatorsTableViewController.h"
 #import "LegislatorTableViewCell.h"
 #import "ApplicationConstraints.m"
+#import "GadflyAPI.h"
 
 @interface AppDelegate ()
 
@@ -16,30 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    _legislators = [NSMutableArray arrayWithCapacity:legArraySize];
-    /*
-    Legislator *legislator = [[Legislator alloc] init];
-    legislator.name = @"Joe Goodguy";
-    legislator.phone = @"555-555-5555";
-    [_legislators addObject:legislator];
-    
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Sue Democrat";
-    legislator.phone = @"666-666-6666";
-    [_legislators addObject:legislator];
-    
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Rogue Politican";
-    legislator.phone = @"123-456-7899";
-    [_legislators addObject:legislator];
     
     //something related to transitions from pages
-    LegislatorsTableViewController *legController = (LegislatorsTableViewController *)self.window.rootViewController;
-   // UINavigationController *navigationController = [UITabBarController viewControllers][0]; BUG HERE
-  //  LegislatorsTableViewController *playersViewController = [navigationController viewControllers][0]; BUG HERE
-    legController.legislators = _legislators;
-     */
+    //LegislatorsTableViewController *legController = (LegislatorsTableViewController *)[[LegislatorsTableViewController alloc]
+   // UINavigationController *navigationController = [navigationController viewControllers][0];
+   //LegislatorsTableViewController *legislatorsViewController = [navigationController viewControllers][0]; // BUG HERE
+    //legislatorTableViewController.legislators = _legislators;
     
+    _legislatorData = [GadflyAPI GetLegislatorData];
     return YES;
 }
 
