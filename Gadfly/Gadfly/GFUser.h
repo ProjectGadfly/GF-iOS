@@ -1,5 +1,6 @@
 #import "GFPoli.h"
 #import "GFScript.h"
+#import "GFTag.h"
 
 #import <Foundation/Foundation.h>
 

@@ -1,7 +1,6 @@
 #import "GFPoli.h"
 
-static const NSString *stateURL = @"http://127.0.0.1:5000/services/v1/getstate";
-static const NSString *federalURL = @"http://127.0.0.1:5000/services/v1/getfederal";
+static const NSString *URL = @"http://gfserver/services/v1/representatives/";
 static const NSString *apiKey = @"";
 const NSTimeInterval timeoutInterval = 60.0;
 
@@ -10,14 +9,6 @@ const NSTimeInterval timeoutInterval = 60.0;
 - (GFPoli *)initWithDictionary:(NSDictionary *)dict{
     
     GFPoli * poli = [GFPoli new];
-    if ([dict valueForKey:@"fedOrState"] == 0) {
-        if ([dict valueForKey:@"senOrRep"] == 0) poli.type=FederalSenate;
-        else poli.type=FederalRep;
-    }
-    else {
-        if ([dict valueForKey:@"senOrRep"] == 0) poli.type=StateSenate;
-        else poli.type=StateRep;
-    }
     poli.name = [dict valueForKey:@"name"];
     poli.party = [dict valueForKey:@"party"];
     if ([dict valueForKey:@"phone"]!=(id)[NSNull null]) {
@@ -29,25 +20,31 @@ const NSTimeInterval timeoutInterval = 60.0;
     if ([dict valueForKey:@"picURL"]!=(id)[NSNull null]) {
         poli.picURL = [dict valueForKey:@"picURL"];
     }
+    if ([dict valueForKey:@"tags"]!=(id)[NSNull null]) {
+        poli.tags=[NSMutableArray new];
+        for (NSString *tag in [dict valueForKey:@"tag_names"]) {
+            [_tags addObject:tag];
+        }
+    }
     
     return poli;
 }
 
-+ (void)fetchStateWithUser:(GFUser *)user
-         completionHandler:(void(^_Nonnull)(NSArray<GFPoli *> *))completion {
++ (void)fetchPoliWithUser:(GFUser *)user
+        completionHandler:(void(^_Nonnull)(NSArray<GFPoli *> *))completion {
     
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:user.address]];
     
-    NSURLComponents *stateComponents = [NSURLComponents componentsWithString:stateURL];
+    NSURLComponents *stateComponents = [NSURLComponents componentsWithString:URL];
     stateComponents.queryItems = queryItems;
-    NSURL *stateURL = stateComponents.URL;
+    NSURL *poliURL = stateComponents.URL;
     
-    NSMutableURLRequest *stateReq = [NSMutableURLRequest requestWithURL:stateURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
-    [stateReq setHTTPMethod:@"GET"];
-    [stateReq setValue:apiKey forHTTPHeaderField:@"key"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:apiKey forHTTPHeaderField:@"key"];
     
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:stateReq completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Fetch State Unseccessful!");
             return;
@@ -57,55 +54,17 @@ const NSTimeInterval timeoutInterval = 60.0;
             return;
         }
         NSLog(@"Successful!");
-        NSMutableArray <GFPoli*> *states=[NSMutableArray<GFPoli*> new];
+        NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
         NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];        for (NSDictionary *entry in arr){
-            GFPoli *state = [[GFPoli alloc] initWithDictionary:entry];
-            NSLog(@"%@",state);
-            [states addObject:state];
+            GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
+            NSLog(@"%@",poli);
+            [polis addObject:poli];
         }
-        completion(states);
+        completion(polis);
     }];
     [task resume];
 }
-
-+ (void)fetchFedWithUser:(GFUser *)user
-       completionHandler:(void(^_Nonnull)(NSArray<GFPoli *> *))completion {
-    
-    NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:user.address]];
-    
-    NSURLComponents *fedComponents = [NSURLComponents componentsWithString:federalURL];
-    fedComponents.queryItems = queryItems;
-    NSURL *fedURL = fedComponents.URL;
-    
-    NSMutableURLRequest *fedReq = [NSMutableURLRequest requestWithURL:fedURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
-    [fedReq setHTTPMethod:@"GET"];
-    [fedReq setValue:apiKey forHTTPHeaderField:@"key"];
-    
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:fedReq completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Fetch Fed Unseccessful!");
-            return;
-        }
-        if (!(response)){
-            NSLog(@"No Response!");
-            return;
-        }
-        NSLog(@"Successful!");
-        NSMutableArray <GFPoli*> *feds=[NSMutableArray<GFPoli*> new];
-        NSError *JSONParsingError;
-        NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
-        for (NSDictionary *entry in arr){
-            GFPoli *fed = [[GFPoli alloc] initWithDictionary:entry];
-            NSLog(@"%@",fed);
-            [feds addObject:fed];
-        }
-        completion(feds);
-    }];
-    [task resume];
-}
-
 
 - (void)printInfo{
     NSLog(@"%@",self.name);
