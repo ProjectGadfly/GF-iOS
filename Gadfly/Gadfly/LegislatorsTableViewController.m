@@ -84,6 +84,13 @@
     }
 }
 
+/* @brief, hack to hard-code cell height
+    @detail Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
+ */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CELL_HEIGHT;
+}
 
 
 /*
