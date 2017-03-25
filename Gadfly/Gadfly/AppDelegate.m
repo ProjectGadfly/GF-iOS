@@ -15,16 +15,30 @@
     NSMutableArray *_legislators;
 }
 
+- (void)junkBin
+{
+    //something related to transitions from pages
+    /*
+     UINavigationController *navigationController = [navigationController viewControllers][0];
+     LegislatorsTableViewController *legislatorsViewController = [navigationController viewControllers][0]; // BUG HERE
+     legislatorTableViewController.legislators = _legislators;
+     */
+}
+
+- (void)prepareLegislatorTable
+{
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //something related to transitions from pages
-    //LegislatorsTableViewController *legController = (LegislatorsTableViewController *)[[LegislatorsTableViewController alloc]
-   // UINavigationController *navigationController = [navigationController viewControllers][0];
-   //LegislatorsTableViewController *legislatorsViewController = [navigationController viewControllers][0]; // BUG HERE
-    //legislatorTableViewController.legislators = _legislators;
-    
+    // Put result from API call into local storage
     _legislatorData = [GadflyAPI GetLegislatorData];
+    
+    // Set up table for legislator page
+    [self prepareLegislatorTable];
+    // ??
     return YES;
 }
 
