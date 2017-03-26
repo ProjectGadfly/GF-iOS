@@ -21,9 +21,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    [self getLegislatorDataFromWebservice];
     self.legislators = [self getLegislatorData];
     
+}
+
+- (void) getLegislatorDataFromWebservice
+{
+    NSLog(@"start webservice method");
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@", json);
+    }];
 }
 
 - (NSMutableArray*) getLegislatorData
@@ -84,8 +94,8 @@
     }
 }
 
-/* @brief, hack to hard-code cell height
-    @detail Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
+/* @brief, hack to fix cell height
+ @detail Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
