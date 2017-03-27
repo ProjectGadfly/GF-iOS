@@ -5,9 +5,9 @@
 
 @interface LegislatorsTableViewController ()
 
-@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
+//@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
 //@property (nonatomic, assign) id delegate;
-@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
+//@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
 
 @end
 
@@ -41,7 +41,7 @@
 
 - (NSMutableArray*) getLegislatorData
 {
-    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:legArraySize];
+    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
     
     Legislator *legislator = [[Legislator alloc] init];
     legislator.name = @"Joe Goodguy";
