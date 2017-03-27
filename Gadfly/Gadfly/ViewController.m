@@ -1,4 +1,3 @@
-
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -9,14 +8,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    GFUser *user = [[GFUser alloc]initWithAddress:@"Grinnell+College"];
+    
+    [GFPoli fetchFedWithUser:user completionHandler:^void (NSArray<GFPoli *> *polis) {
+        for (GFPoli *p in polis){
+            [p printInfo];
+        }
+    }];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
+} 
 
 
 @end

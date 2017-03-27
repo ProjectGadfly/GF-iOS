@@ -1,6 +1,6 @@
 #import "GFScript.h"
 #import "GFUser.h"
-#import "GFRep.h"
+#import "GFPoli.h"
 
 #import <UIKit/UIKit.h>
 
