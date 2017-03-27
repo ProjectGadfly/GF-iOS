@@ -99,6 +99,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="legImage" destination="zvs-YL-ZiT" id="Rhm-vd-Q9g"/>
                                     <outlet property="nameLabel" destination="hxH-gV-O0L" id="5WB-7p-VR0"/>
                                     <outlet property="phoneLabel" destination="a1I-IS-IvU" id="MM1-S6-SNK"/>
                                 </connections>

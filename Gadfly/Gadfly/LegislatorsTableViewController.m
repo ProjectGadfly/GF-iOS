@@ -14,9 +14,8 @@
 @interface LegislatorsTableViewController ()
 
 // Bugs with these outlets
-//@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
 @property (nonatomic, assign) id delegate;
-//@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
+
 
 @end
 
@@ -60,9 +59,12 @@
             NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
             NSString *current_phone = offices[@"phone"];
             NSString *current_name = obj[@"full_name"];
+ 
+            //NSLog(@"%@", image_data);
             Legislator *legislator = [[Legislator alloc] init];
             legislator.name = current_name;
             legislator.phone = current_phone;
+            legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
             [temp_legislators addObject:legislator];
             [self.tableView reloadData]; //refresh table view after data is fetched
         }];
@@ -71,6 +73,7 @@
     return temp_legislators;
 }
 
+/*
 // @brief method to simular API by using sample data
 - (NSMutableArray*) getLegislatorData
 {
@@ -92,7 +95,7 @@
     [legislators addObject:legislator];
     
     return legislators;
-}
+}*/
 
 
 - (void)didReceiveMemoryWarning {
@@ -120,6 +123,11 @@
     Legislator *legislator = (self.legislators)[indexPath.row];
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
+    
+    NSData *image_data = [NSData dataWithContentsOfURL:legislator.photo_url];
+    UIImage *image = [UIImage imageWithData:image_data];
+    
+    cell.legImage.image = image;
     return cell;
 }
 
