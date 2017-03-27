@@ -11,10 +11,8 @@
 
 @implementation AppDelegate
 
-{
-    NSMutableArray *_legislators;
-}
 
+//NSMutableArray *_legislators; //old code, goes with junkBin
 - (void)junkBin
 {
     //something related to transitions from pages
@@ -25,22 +23,17 @@
      */
 }
 
+// empty method, may be taken care of in storyboard
 - (void)prepareLegislatorTable
 {
-    
 }
 
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     // Put result from API call into local storage
     _legislatorData = [GadflyAPI GetLegislatorData];
     
     // Set up table for legislator page
-    [self prepareLegislatorTable];
-    // ??
+    [self prepareLegislatorTable]; // empty method, may not be needed
     return YES;
 }
 
