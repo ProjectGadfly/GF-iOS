@@ -62,11 +62,11 @@
             </objects>
             <point key="canvasLocation" x="2015.2" y="137.18140929535232"/>
         </scene>
-        <!--Legislators Table View Controller-->
+        <!--Legislators-->
         <scene sceneID="9sF-Wt-Blc">
             <objects>
                 <tableViewController storyboardIdentifier="legislatorsTableViewController" id="oVA-76-NHO" customClass="LegislatorsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aau-Eu-9Tg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aau-Eu-9Tg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,6 +106,9 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Legislators" id="ZkD-xX-pcb">
+                        <barButtonItem key="rightBarButtonItem" title="Scan" id="1Pv-nH-F6y"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdS-ph-d4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
