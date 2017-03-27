@@ -49,7 +49,7 @@
                                     <segue destination="oVA-76-NHO" kind="show" identifier="showLegislators" id="OUX-kD-3bm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
                                 <rect key="frame" x="64" y="91" width="247" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -66,7 +66,7 @@
         <scene sceneID="9sF-Wt-Blc">
             <objects>
                 <tableViewController storyboardIdentifier="legislatorsTableViewController" id="oVA-76-NHO" customClass="LegislatorsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Legislators" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aau-Eu-9Tg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aau-Eu-9Tg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

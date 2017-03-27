@@ -6,6 +6,10 @@
 #import "Legislator.h"
 #import "LegislatorTableViewCell.h"
 #import "ApplicationConstraints.m"
+#import "GFRep.h"
+#import "GFUser.h"
+
+
 
 @interface LegislatorsTableViewController ()
 
@@ -18,12 +22,16 @@
 
 @implementation LegislatorsTableViewController
 
-// Bug with delegate
-//@synthesize delegate;
+
 @synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    GFUser *user= [[GFUser alloc]initWithAddress:@"Grinnell+College"];
+    [GFRep fetchRepsWithUser:user completionHandler:^void(NSArray<GFRep *> *results){
+        _legislators=results;
+    }]
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,22 +40,35 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // @brief methods to simulate API calls
-    [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
-    //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
     
+    //self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+    //NSLog(@"%@", _legislators);
+    //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
+    [self.tableView reloadData];
 }
+
 
 // @brief method to simulate API by connecting to mpls.cx and reading sample json
 // @discussion not currently working
-- (void) getLegislatorDataFromWebservice
+- (NSMutableArray*)getLegislatorDataFromWebservice
 {
-    NSLog(@"start webservice method");
+    //NSLog(@"start webservice method");
+    NSMutableArray *temp_legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@", json);
+        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        [json enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
+            NSString *current_phone = offices[@"phone"];
+            NSString *current_name = obj[@"full_name"];
+            Legislator *legislator = [[Legislator alloc] init];
+            legislator.name = current_name;
+            legislator.phone = current_phone;
+            [temp_legislators addObject:legislator];
+        }];
     }];
     [dataTask resume];
+    return temp_legislators;
 }
 
 // @brief method to simular API by using sample data
@@ -72,6 +93,7 @@
     
     return legislators;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
