@@ -28,10 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    GFUser *user= [[GFUser alloc]initWithAddress:@"Grinnell+College"];
+   /* GFUser *user= [[GFUser alloc]initWithAddress:@"Grinnell+College"];
     [GFRep fetchRepsWithUser:user completionHandler:^void(NSArray<GFRep *> *results){
         _legislators=results;
-    }]
+    }]*/
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -39,12 +39,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
     // @brief methods to simulate API calls
     
-    //self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
-    //NSLog(@"%@", _legislators);
+    self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
     //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
-    [self.tableView reloadData];
 }
 
 
@@ -65,6 +64,7 @@
             legislator.name = current_name;
             legislator.phone = current_phone;
             [temp_legislators addObject:legislator];
+            [self.tableView reloadData]; //refresh table view after data is fetched
         }];
     }];
     [dataTask resume];
