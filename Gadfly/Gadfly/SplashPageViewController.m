@@ -1,3 +1,7 @@
+/*
+ @file Custom controller for splash page
+ */
+
 #import "SplashPageViewController.h"
 
 @interface SplashPageViewController ()
