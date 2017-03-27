@@ -10,9 +10,10 @@
 
 @implementation GadflyAPI
 
+// @brief class method to simulate API call by returning sample data. 
 + (NSMutableArray*) GetLegislatorData
 {
-    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:legArraySize];
+    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
     
     Legislator *legislator = [[Legislator alloc] init];
     legislator.name = @"Joe Goodguy";
