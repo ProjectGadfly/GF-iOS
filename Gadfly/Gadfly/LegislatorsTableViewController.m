@@ -11,7 +11,7 @@
 
 // Bugs with these outlets
 //@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
-//@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) id delegate;
 //@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
 
 @end
@@ -33,7 +33,7 @@
     
     // @brief methods to simulate API calls
     [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
-    self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
+    //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
     
 }
 
@@ -47,6 +47,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"%@", json);
     }];
+    [dataTask resume];
 }
 
 // @brief method to simular API by using sample data
@@ -80,12 +81,12 @@
 #pragma mark - Table view data source
 
 // @brief Change if multiple sections are wanted.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 // @brief We want one cell for each legislator.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.legislators count];
 }
 
