@@ -1,3 +1,7 @@
+/*
+ @file Custom UITableViewContorller class
+ */
+
 #import "LegislatorsTableViewController.h"
 #import "Legislator.h"
 #import "LegislatorTableViewCell.h"
@@ -5,6 +9,7 @@
 
 @interface LegislatorsTableViewController ()
 
+// Bugs with these outlets
 //@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
 //@property (nonatomic, assign) id delegate;
 //@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
@@ -13,6 +18,7 @@
 
 @implementation LegislatorsTableViewController
 
+// Bug with delegate
 //@synthesize delegate;
 @synthesize delegate;
 
@@ -24,11 +30,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self getLegislatorDataFromWebservice];
-    self.legislators = [self getLegislatorData];
+    
+    // @brief methods to simulate API calls
+    [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+    self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
     
 }
 
+// @brief method to simulate API by connecting to mpls.cx and reading sample json
+// @discussion not currently working
 - (void) getLegislatorDataFromWebservice
 {
     NSLog(@"start webservice method");
@@ -39,6 +49,7 @@
     }];
 }
 
+// @brief method to simular API by using sample data
 - (NSMutableArray*) getLegislatorData
 {
     NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
@@ -61,7 +72,6 @@
     return legislators;
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -69,14 +79,17 @@
 
 #pragma mark - Table view data source
 
+// @brief Change if multiple sections are wanted.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+// @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.legislators count];
 }
 
+// @brief method to dequeue and populate custom cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
@@ -87,6 +100,7 @@
     return cell;
 }
 
+// @brief Segue between splash page and legislator page
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showLegislators"]) {
@@ -98,20 +112,21 @@
 }
 
 /* @brief, hack to fix cell height
- @detail Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
+   @discussion Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return CELL_HEIGHT;
 }
 
-
+// @brief Empty method used for debugging. 
 /*
 - (void)setLegislators:(NSMutableArray *)legislators
 {
     
 }
 */
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
