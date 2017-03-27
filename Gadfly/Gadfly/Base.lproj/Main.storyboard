@@ -65,7 +65,7 @@
         <!--Legislators Table View Controller-->
         <scene sceneID="9sF-Wt-Blc">
             <objects>
-                <tableViewController storyboardIdentifier="legislatorTableViewController" id="oVA-76-NHO" customClass="LegislatorsTableViewController" sceneMemberID="viewController">
+                <tableViewController id="oVA-76-NHO" customClass="LegislatorsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Legislators" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aau-Eu-9Tg" customClass="LegislatorsTableViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,26 +99,25 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="hxH-gV-O0L" id="XGq-HW-6Bu"/>
-                                    <outlet property="phoneLabel" destination="a1I-IS-IvU" id="vtG-3Q-w9y"/>
+                                    <outlet property="nameLabel" destination="hxH-gV-O0L" id="5WB-7p-VR0"/>
+                                    <outlet property="phoneLabel" destination="a1I-IS-IvU" id="MM1-S6-SNK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="oVA-76-NHO" id="1mj-hs-PYP"/>
-                            <outlet property="delegate" destination="oVA-76-NHO" id="qXa-3H-w6A"/>
-                        </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="dataSource" destination="Aau-Eu-9Tg" id="iCO-Le-uuI"/>
+                        <outlet property="delegate" destination="Aau-Eu-9Tg" id="WZ1-C5-H1E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdS-ph-d4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3002" y="137"/>
+            <point key="canvasLocation" x="3000.8000000000002" y="136.28185907046478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zrQ-8i-QnU">
             <objects>
                 <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="qfW-ib-c7j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="3Zg-Xh-DBK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7i-dh-Can">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
