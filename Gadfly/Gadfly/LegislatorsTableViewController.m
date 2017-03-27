@@ -5,12 +5,15 @@
 
 @interface LegislatorsTableViewController ()
 
-@property (nonatomic, assign) id delegate;
+@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *dataSource;
+//@property (nonatomic, assign) id delegate;
+@property (strong, nonatomic) IBOutlet LegislatorsTableViewController *delegate;
 
 @end
 
 @implementation LegislatorsTableViewController
 
+//@synthesize delegate;
 @synthesize delegate;
 
 - (void)viewDidLoad {
