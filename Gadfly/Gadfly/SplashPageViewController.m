@@ -9,6 +9,7 @@
 @end
 
 @implementation SplashPageViewController
+@synthesize userInput;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +20,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)submitPressed:(id)sender {
+    self.userAddress = [NSString alloc];
+    self.userAddress = userInput.text;
+    NSLog(@"Received: %@", self.userAddress);
 }
 
 @end

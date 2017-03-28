@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SplashPageViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *userInput;
+@property (strong, nonatomic) NSString* userAddress;
 @end

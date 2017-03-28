@@ -13,9 +13,7 @@
 
 @interface LegislatorsTableViewController ()
 
-// Bugs with these outlets
 @property (nonatomic, assign) id delegate;
-
 
 @end
 
