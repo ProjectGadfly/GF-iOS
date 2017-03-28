@@ -34,6 +34,7 @@
     
     // Set up table for legislator page
     [self prepareLegislatorTable]; // empty method, may not be needed
+
     return YES;
 }
 

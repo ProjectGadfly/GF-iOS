@@ -53,6 +53,17 @@
                                 <rect key="frame" x="64" y="116" width="247" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2h-SS-zbE">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="About Gadfly " id="H50-Ev-Sc6">
+                                        <connections>
+                                            <segue destination="kvS-MN-3kj" kind="show" id="QaY-Uj-ShA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -62,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="2015.2" y="137.18140929535232"/>
         </scene>
-        <!--Legislators-->
+        <!--Your Representatives-->
         <scene sceneID="9sF-Wt-Blc">
             <objects>
                 <tableViewController storyboardIdentifier="legislatorsTableViewController" id="oVA-76-NHO" customClass="LegislatorsTableViewController" sceneMemberID="viewController">
@@ -75,7 +86,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O28-8y-ulU" id="8xL-LP-ws1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person_outline" translatesAutoresizingMaskIntoConstraints="NO" id="zvs-YL-ZiT">
@@ -106,13 +117,66 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Legislators" id="ZkD-xX-pcb">
+                    <navigationItem key="navigationItem" title="Your Representatives" id="ZkD-xX-pcb">
                         <barButtonItem key="rightBarButtonItem" title="Scan" id="1Pv-nH-F6y"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdS-ph-d4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3000.8000000000002" y="136.28185907046478"/>
+        </scene>
+        <!--About Gadfly-->
+        <scene sceneID="jyA-qk-Tcl">
+            <objects>
+                <viewController id="kvS-MN-3kj" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DqA-zy-Pnw"/>
+                        <viewControllerLayoutGuide type="bottom" id="VWf-a5-4DB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TI1-eC-rVE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="project_gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="bH8-89-L5v">
+                                <rect key="frame" x="16" y="168" width="332" height="266"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-o7-co9">
+                                <rect key="frame" x="15" y="72" width="221" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="About us">
+                                        <attributes>
+                                            <font key="NSFont" size="48" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="projectgadfly1@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-Ce-3Mi">
+                                <rect key="frame" x="16" y="129" width="203" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-s3-8xN">
+                                <rect key="frame" x="15" y="451" width="343" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Project Gadfly is a group of Grinnell students, alumni, and other volunteers who seek to help residents of the United States identify and contact their representatives. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About Gadfly" id="aca-Fm-ENc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="app-AM-Fd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013.5999999999999" y="924.28785607196414"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zrQ-8i-QnU">
@@ -136,5 +200,6 @@
     <resources>
         <image name="gadfly" width="137" height="176"/>
         <image name="person_outline" width="225" height="225"/>
+        <image name="project_gadfly" width="720" height="540"/>
     </resources>
 </document>
