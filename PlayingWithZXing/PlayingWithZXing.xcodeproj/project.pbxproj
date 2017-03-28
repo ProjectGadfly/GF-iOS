@@ -15,6 +15,7 @@
 		AAA0579E1E8AF04D004DD3C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA0579C1E8AF04D004DD3C3 /* LaunchScreen.storyboard */; };
 		AAA057A91E8AF04D004DD3C3 /* PlayingWithZXingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA057A81E8AF04D004DD3C3 /* PlayingWithZXingTests.m */; };
 		AAA057B41E8AF04D004DD3C3 /* PlayingWithZXingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA057B31E8AF04D004DD3C3 /* PlayingWithZXingUITests.m */; };
+		AAA057C21E8AF108004DD3C3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AAA057C11E8AF108004DD3C3 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AAA057AF1E8AF04D004DD3C3 /* PlayingWithZXingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingWithZXingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA057B31E8AF04D004DD3C3 /* PlayingWithZXingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingWithZXingUITests.m; sourceTree = "<group>"; };
 		AAA057B51E8AF04D004DD3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAA057C11E8AF108004DD3C3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				AAA057971E8AF04D004DD3C3 /* Main.storyboard */,
 				AAA0579A1E8AF04D004DD3C3 /* Assets.xcassets */,
 				AAA0579C1E8AF04D004DD3C3 /* LaunchScreen.storyboard */,
+				AAA057C11E8AF108004DD3C3 /* Podfile */,
 				AAA0579F1E8AF04D004DD3C3 /* Info.plist */,
 				AAA0578E1E8AF04D004DD3C3 /* Supporting Files */,
 			);
@@ -248,6 +251,7 @@
 			files = (
 				AAA0579E1E8AF04D004DD3C3 /* LaunchScreen.storyboard in Resources */,
 				AAA0579B1E8AF04D004DD3C3 /* Assets.xcassets in Resources */,
+				AAA057C21E8AF108004DD3C3 /* Podfile in Resources */,
 				AAA057991E8AF04D004DD3C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
