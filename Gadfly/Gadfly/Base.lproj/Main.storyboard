@@ -162,7 +162,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-s3-8xN">
-                                <rect key="frame" x="15" y="451" width="343" height="81"/>
+                                <rect key="frame" x="15" y="451" width="343" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Project Gadfly is a group of Grinnell students, alumni, and other volunteers who seek to help residents of the United States identify and contact their representatives. </string>
