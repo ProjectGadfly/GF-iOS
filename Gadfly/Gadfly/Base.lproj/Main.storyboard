@@ -43,7 +43,7 @@
                                     <segue destination="oVA-76-NHO" kind="show" identifier="showLegislators" id="OUX-kD-3bm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gadfly_logo" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
                                 <rect key="frame" x="64" y="116" width="247" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -224,7 +224,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gadfly" width="137" height="176"/>
+        <image name="gadfly_logo" width="502" height="502"/>
         <image name="person_outline" width="225" height="225"/>
         <image name="project_gadfly" width="720" height="540"/>
     </resources>
