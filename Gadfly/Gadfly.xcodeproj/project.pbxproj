@@ -17,6 +17,8 @@
 		AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */; };
 		AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */; };
 		AAFA010E1E8C129A0030199B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AAFA010D1E8C129A0030199B /* Podfile */; };
+		AAFA01131E8C14B80030199B /* BarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */; };
+		AAFA01141E8C14B80030199B /* BarcodeScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
 		BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */; };
@@ -66,7 +68,10 @@
 		AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationConstraints.m; sourceTree = "<group>"; };
 		AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorTableViewCell.h; sourceTree = "<group>"; };
 		AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorTableViewCell.m; sourceTree = "<group>"; };
-		AAFA010D1E8C129A0030199B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		AAFA010D1E8C129A0030199B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AAFA01101E8C14B80030199B /* BarcodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeScannerViewController.h; sourceTree = "<group>"; };
+		AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeScannerViewController.m; sourceTree = "<group>"; };
+		AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarcodeScannerViewController.xib; path = Gadfly/BarcodeScannerViewController.xib; sourceTree = SOURCE_ROOT; };
 		BF65F2E61E8046F6007624E9 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,6 +171,9 @@
 				AAA5B78C1E86DE7C004CD5FD /* GadflyAPI.h */,
 				AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
+				AAFA01101E8C14B80030199B /* BarcodeScannerViewController.h */,
+				AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */,
+				AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */,
 				AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */,
 				AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */,
 				AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */,
@@ -350,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFA01141E8C14B80030199B /* BarcodeScannerViewController.xib in Resources */,
 				AA7DCC7C1E8702370058C10B /* openStatesSample.js in Resources */,
 				BF65F2F61E8046F6007624E9 /* Assets.xcassets in Resources */,
 				AAFA010E1E8C129A0030199B /* Podfile in Resources */,
@@ -526,6 +535,7 @@
 				AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */,
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
 				AAF9BE361E85C70900D0008A /* Legislator.m in Sources */,
+				AAFA01131E8C14B80030199B /* BarcodeScannerViewController.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,
 				AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */,
 			);
@@ -670,6 +680,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -684,6 +695,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";

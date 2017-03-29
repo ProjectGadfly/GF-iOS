@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O28-8y-ulU" id="8xL-LP-ws1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person_outline" translatesAutoresizingMaskIntoConstraints="NO" id="zvs-YL-ZiT">
@@ -122,12 +122,34 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Representatives" id="ZkD-xX-pcb">
-                        <barButtonItem key="rightBarButtonItem" title="Scan" id="1Pv-nH-F6y"/>
+                        <barButtonItem key="rightBarButtonItem" title="Scan" id="1Pv-nH-F6y">
+                            <connections>
+                                <segue destination="JMm-nr-Mjv" kind="show" id="Bmv-7R-1se"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdS-ph-d4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3000.8000000000002" y="136.28185907046478"/>
+        </scene>
+        <!--Barcode Scanner View Controller-->
+        <scene sceneID="VT3-Z6-UAf">
+            <objects>
+                <viewController id="JMm-nr-Mjv" customClass="BarcodeScannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hF1-sU-mWm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ics-N6-OL5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JUl-vh-DMb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ZF-48-zmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4064" y="155"/>
         </scene>
         <!--About Gadfly-->
         <scene sceneID="jyA-qk-Tcl">

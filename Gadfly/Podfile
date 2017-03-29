@@ -7,7 +7,7 @@ target 'Gadfly' do
 
   # Pods for Gadfly
     # ZXing for barcode scanning
-    platform :ios, '9.0'
+    #platform :ios, '8.0'
     pod 'ZXingObjC', '~> 3.2.1'
 
   target 'GadflyTests' do
