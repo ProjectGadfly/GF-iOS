@@ -133,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="3000.8000000000002" y="136.28185907046478"/>
         </scene>
-        <!--Scan-->
+        <!--Barcode Scanner View Controller-->
         <scene sceneID="VT3-Z6-UAf">
             <objects>
                 <viewController storyboardIdentifier="barcodeScannerViewController" id="JMm-nr-Mjv" customClass="BarcodeScannerViewController" sceneMemberID="viewController">
@@ -146,9 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan" prompt="Scan a QR Code!" id="dEK-6U-xaZ">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="MUp-fk-bVE"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" prompt="Scan a QR Code!" id="dEK-6U-xaZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZF-48-zmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
