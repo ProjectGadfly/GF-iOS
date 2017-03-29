@@ -7,11 +7,8 @@
 @interface GFUser : NSObject
 
 @property bool initialized;
-@property (nonatomic,strong) NSString *address;
 
-- (GFUser *)initWithAddress:(NSString *)address;
-- (void)editAddress:(NSString *)address;
-- (void)forget;
+- (GFUser *)init;
 - (void)reset;
 
 @end

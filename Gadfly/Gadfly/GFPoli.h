@@ -10,12 +10,17 @@
 @property (nonatomic,strong,nullable) NSString *picURL;
 @property (nonatomic,strong,nullable) NSString *phone;
 @property (nonatomic,strong,nullable) NSString *email;
-@property (nonatomic,strong,nullable) NSMutableArray *tags;
+@property (nonatomic,strong,nonnull) NSMutableArray *tags;
+
 
 - (GFPoli *)initWithDictionary:(NSDictionary *)dict;
 
-+ (void)fetchPoliWithUser:(GFUser *)user
-         completionHandler:(void(^_Nonnull)(NSArray<GFPoli *> *))completion;
+/*!
+ @discussion Upon success, this method returns an array of GFPoli objects. Upon failure, this method
+ returns an array containing a single NSString object, which is an error message.
+ */
++ (void)fetchPoliWithAddress:(NSString *)address
+           completionHandler:(void(^_Nonnull)(NSArray *))completion;
 
 - (void)printInfo;
 

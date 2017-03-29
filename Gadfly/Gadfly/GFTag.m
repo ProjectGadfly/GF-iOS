@@ -1,9 +1,9 @@
 #import "GFTag.h"
 
-static NSMutableDictionary *dictOfTags;
+static NSMutableDictionary *tags;
 
-static const NSString *URL = @"http://gfserver/services/v1/alltags/";
-static const NSString *apiKey = @"";
+static const NSString *URL = @"http://gadfly.mobi/services/v1/alltags";
+static const NSString *APIKey = @"v1key";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFTag
@@ -11,7 +11,7 @@ const NSTimeInterval timeoutInterval = 60.0;
 + (void)initTags {
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -25,14 +25,15 @@ const NSTimeInterval timeoutInterval = 60.0;
         NSLog(@"Successful!");
         
         NSError *JSONParsingError;
-        dictOfTags = [NSMutableDictionary new];
-        dictOfTags = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        tags = [NSMutableDictionary new];
+        tags = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        
     }];
     [task resume];
 }
 
-+ (NSDictionary *)fetchTags {
-    return dictOfTags;
++ (NSDictionary *)getTags {
+    return tags;
 }
 
 @end

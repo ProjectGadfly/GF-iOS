@@ -1,7 +1,7 @@
 #import "GFPoli.h"
 
-static const NSString *URL = @"http://gfserver/services/v1/representatives/";
-static const NSString *apiKey = @"";
+static const NSString *URL = @"http://gadfly.mobi/services/v1/representatives";
+static const NSString *APIKey = @"v1key";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFPoli
@@ -22,27 +22,25 @@ const NSTimeInterval timeoutInterval = 60.0;
     }
     if ([dict valueForKey:@"tags"]!=(id)[NSNull null]) {
         poli.tags=[NSMutableArray new];
-        for (NSString *tag in [dict valueForKey:@"tag_names"]) {
-            [_tags addObject:tag];
-        }
+        poli.tags=[dict valueForKey:@"tags"];
     }
     
     return poli;
 }
 
-+ (void)fetchPoliWithUser:(GFUser *)user
-        completionHandler:(void(^_Nonnull)(NSArray<GFPoli *> *))completion {
++ (void)fetchPoliWithAddress:(NSString *)address
+           completionHandler:(void(^_Nonnull)(NSArray *))completion {
     
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:user.address]];
+    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
     
-    NSURLComponents *stateComponents = [NSURLComponents componentsWithString:URL];
-    stateComponents.queryItems = queryItems;
-    NSURL *poliURL = stateComponents.URL;
+    NSURLComponents *components = [NSURLComponents componentsWithString:URL];
+    components.queryItems = queryItems;
+    NSURL *poliURL = components.URL;
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -56,12 +54,22 @@ const NSTimeInterval timeoutInterval = 60.0;
         NSLog(@"Successful!");
         NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
-        NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];        for (NSDictionary *entry in arr){
-            GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
-            NSLog(@"%@",poli);
-            [polis addObject:poli];
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        NSString *status=[result valueForKey:@"Status"];
+        if (![status isEqualToString:@"OK"]){
+            NSMutableArray *error=[NSMutableArray new];
+            [error addObject:status];
+            completion(error);
         }
-        completion(polis);
+        else {
+            NSMutableArray *arr=[result valueForKey:@"Results"];
+            for (NSDictionary *entry in arr){
+                GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
+                NSLog(@"%@",poli);
+                [polis addObject:poli];
+            }
+            completion(polis);
+        }
     }];
     [task resume];
 }

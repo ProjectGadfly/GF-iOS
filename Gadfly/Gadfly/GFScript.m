@@ -1,8 +1,8 @@
 #import "GFScript.h"
 
-static const NSString *idURL = @"http://gfserver/services/v1/id/";
-static const NSString *scriptURL = @"http://gfserver/services/v1/script/";
-static const NSString *apiKey = @"";
+static const NSString *idURL = @"http://gadfly.mobi/services/v1/id";
+static const NSString *scriptURL = @"http://gadfly.mobi/services/v1/script";
+static const NSString *APIKey = @"v1key";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFScript
@@ -21,7 +21,7 @@ const NSTimeInterval timeoutInterval = 60.0;
 }
 
 + (void)fetchIDtWithTicket:(NSString *)ticket
-         completionHandler:(void(^_Nonnull)(NSInteger))completion {
+         completionHandler:(void(^_Nonnull)(NSDictionary *))completion {
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     [queryItems addObject:[NSURLQueryItem queryItemWithName:@"ticket" value:ticket]];
     
@@ -31,7 +31,7 @@ const NSTimeInterval timeoutInterval = 60.0;
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -43,16 +43,20 @@ const NSTimeInterval timeoutInterval = 60.0;
             return;
         }
         NSLog(@"Successful!");
-        NSInteger ID=data;
-        completion(ID);
+        NSDictionary *result=[NSDictionary new];
+        NSError *JSONParsingError;
+        result=[NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        completion(result);
     }];
     [task resume];
 }
 
-+ (void)fetchScriptWithID:(NSString *)ID
++ (void)fetchScriptWithID:(NSInteger)ID
         completionHandler:(void(^_Nonnull)(GFScript *))completion {
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"id" value:ID]];
+    
+    NSString *IDS = [NSString stringWithFormat: @"%ld", ID];
+    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"id" value:IDS]];
     
     NSURLComponents *components = [NSURLComponents componentsWithString:scriptURL];
     components.queryItems = queryItems;
@@ -60,7 +64,7 @@ const NSTimeInterval timeoutInterval = 60.0;
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -72,86 +76,22 @@ const NSTimeInterval timeoutInterval = 60.0;
             return;
         }
         NSLog(@"Successful!");
-        NSDictionary *scriptData=[NSDictionary new];
+        NSDictionary *result=[NSDictionary new];
         NSError *JSONParsingError;
-        scriptData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
-        GFScript *script=[[GFScript alloc]initWithDictionary:scriptData];
-        completion(script);
-    }];
-    [task resume];
-}
-
-+ (void)postScriptWithScript:(GFScript *)script {
-    NSDictionary *dictOfTags = [GFTag fetchTags];
-    NSMutableArray *arrOfTagID = [NSMutableArray new];
-    
-    NSMutableDictionary* dict = [NSMutableDictionary new];
-    [dict setValue:script.title forKey:@"title"];
-    [dict setValue:script.content forKey:@"content"];
-    if (script.tags !=(id)[NSNull null]){
-        for (NSString *tag in script.tags){
-            NSString *ID = [dictOfTags valueForKey:tag];
-            [arrOfTagID addObject:ID];
+        result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        NSString *status=[result valueForKey:@"Status"];
+        if (![status isEqualToString:@"OK"]) {
+            GFScript *error=[GFScript new];
+            error.title=status;
+            error.content=@"";
+            completion(error);
         }
-        [dict setValue:arrOfTagID forKey:@"tags"];
-    }
-    if (script.expirationDate !=(id)[NSNull null]){
-        [dict setValue:script.expirationDate forKey:@"expiration_date"];
-    }
-    if (script.email !=(id)[NSNull null]){
-        [dict setValue:script.email forKey:@"email"];
-    }
-    NSError *JsonConvertionError;
-    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&JsonConvertionError];
-    NSString *bodyLength = [NSString stringWithFormat:@"%lu",(unsigned long)[bodyData length]];
-    
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:scriptURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
-    [req setHTTPMethod:@"POST"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
-    [req setValue:bodyLength forHTTPHeaderField:@"Content-Length"];
-    [req setValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
-    [req setHTTPBody:bodyData];
-    
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Post Script Unseccessful!");
-            return;
+        else {
+            NSDictionary *scriptData=[NSDictionary new];
+            scriptData=[result valueForKey:@"Script"];
+            GFScript *script=[[GFScript alloc]initWithDictionary:scriptData];
+            completion(script);
         }
-        if (!(response)){
-            NSLog(@"No Response!");
-            return;
-        }
-        NSLog(@"Successful!");
-    }];
-    [task resume];
-}
-
-+ (void)deleteScriptWithTicket:(NSString *)ticket {
-    NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"ticket" value:ticket]];
-    
-    NSURLComponents *components = [NSURLComponents componentsWithString:scriptURL];
-    components.queryItems = queryItems;
-    NSURL *URL = components.URL;
-    
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
-    [req setHTTPMethod:@"DELETE"];
-    [req setValue:apiKey forHTTPHeaderField:@"key"];
-    
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Delete Script Unseccessful!");
-            return;
-        }
-        if (!(response)){
-            NSLog(@"No Response!");
-            return;
-        }
-        NSLog(@"Successful!");
-        if (data == 200){
-            NSLog(@"Delete Successful!");
-        }
-        else NSLog(@"Delete Unsuccessful!");
     }];
     [task resume];
 }
