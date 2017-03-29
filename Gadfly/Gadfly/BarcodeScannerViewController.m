@@ -169,7 +169,11 @@
             return @"PDF417";
             
         case kBarcodeFormatQRCode:
+        {
+            NSLog(@"It's a QR code!");
+            [self performSegueWithIdentifier:@"barcodeScanned" sender:nil];
             return @"QR Code";
+        }
             
         case kBarcodeFormatRSS14:
             return @"RSS 14";
@@ -230,6 +234,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

@@ -12,6 +12,7 @@
 		AA7DCC7C1E8702370058C10B /* openStatesSample.js in Resources */ = {isa = PBXBuildFile; fileRef = AA7DCC7B1E8702370058C10B /* openStatesSample.js */; };
 		AAA5B78E1E86DE7C004CD5FD /* GadflyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */; };
 		AACBD73C1E8B13DE00237D47 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBD73B1E8B13DE00237D47 /* AboutViewController.m */; };
+		AAF9AEAE1E8C65D8004F5FFB /* ScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */; };
 		AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */; };
 		AAF9BE361E85C70900D0008A /* Legislator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE351E85C70900D0008A /* Legislator.m */; };
 		AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */; };
@@ -61,6 +62,8 @@
 		AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GadflyAPI.m; path = gadfly/GadflyAPI.m; sourceTree = SOURCE_ROOT; };
 		AACBD73A1E8B13DE00237D47 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		AACBD73B1E8B13DE00237D47 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		AAF9AEAC1E8C65D8004F5FFB /* ScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptViewController.h; sourceTree = "<group>"; };
+		AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptViewController.m; sourceTree = "<group>"; };
 		AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorsTableViewController.h; sourceTree = "<group>"; };
 		AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorsTableViewController.m; sourceTree = "<group>"; };
 		AAF9BE341E85C70900D0008A /* Legislator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Legislator.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */,
 				AAF9BE341E85C70900D0008A /* Legislator.h */,
 				AAF9BE351E85C70900D0008A /* Legislator.m */,
+				AAF9AEAC1E8C65D8004F5FFB /* ScriptViewController.h */,
+				AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */,
 				AA7DCC7B1E8702370058C10B /* openStatesSample.js */,
 				BF65F2F51E8046F6007624E9 /* Assets.xcassets */,
 				BF65F2FA1E8046F6007624E9 /* Info.plist */,
@@ -536,6 +541,7 @@
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
 				AAF9BE361E85C70900D0008A /* Legislator.m in Sources */,
 				AAFA01131E8C14B80030199B /* BarcodeScannerViewController.m in Sources */,
+				AAF9AEAE1E8C65D8004F5FFB /* ScriptViewController.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,
 				AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */,
 			);
@@ -680,7 +686,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -695,7 +701,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
