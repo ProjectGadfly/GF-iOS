@@ -1,4 +1,5 @@
 #import "BarcodeScannerViewController.h"
+#import "AppDelegate.h"
 
 @interface BarcodeScannerViewController ()
 
@@ -19,9 +20,25 @@
     [self.capture.layer removeFromSuperlayer];
 }
 
+// QR code stuff
+// Where should this go?
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //QR code scanning
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    appDelegate.window.rootViewController= [[BarcodeScannerViewController alloc] initWithNibName:@"BarcodeScannerViewController" bundle:nil];
+    [appDelegate.window makeKeyAndVisible];
+    
+    
+    return YES;
+}
+
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     self.capture = [[ZXCapture alloc] init];
     self.capture.camera = self.capture.back;
     self.capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
@@ -39,8 +56,6 @@
     
     [self applyOrientation];
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return toInterfaceOrientation == UIInterfaceOrientationPortrait;

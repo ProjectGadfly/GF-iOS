@@ -136,7 +136,7 @@
         <!--Barcode Scanner View Controller-->
         <scene sceneID="VT3-Z6-UAf">
             <objects>
-                <viewController id="JMm-nr-Mjv" customClass="BarcodeScannerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="barcodeScannerViewController" id="JMm-nr-Mjv" customClass="BarcodeScannerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hF1-sU-mWm"/>
                         <viewControllerLayoutGuide type="bottom" id="ics-N6-OL5"/>

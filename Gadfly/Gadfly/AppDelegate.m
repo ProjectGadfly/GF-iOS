@@ -35,12 +35,7 @@
     
     // Set up table for legislator page
     [self prepareLegislatorTable]; // empty method, may not be needed
-    
-    
-    //QR code scanning
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[BarcodeScannerViewController alloc] initWithNibName:@"BarcodeScannerViewController" bundle:nil];
-    [self.window makeKeyAndVisible];
+
 
     return YES;
 }
