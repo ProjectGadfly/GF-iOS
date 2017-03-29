@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3458555F7A335BA8CE2ADD60 /* libPods-GadflyUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CCA4890EE81A7AA13FF678 /* libPods-GadflyUITests.a */; };
 		555438B2BCF00029E8403B42 /* libPods-GadflyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 350958658E922EEE2AD8E35D /* libPods-GadflyTests.a */; };
+		AA37CA311E8C786800110DE3 /* GFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = AA37CA301E8C786800110DE3 /* GFTag.m */; };
+		AA37CA351E8C7A9600110DE3 /* GFPoli.m in Sources */ = {isa = PBXBuildFile; fileRef = AA37CA331E8C791D00110DE3 /* GFPoli.m */; };
 		AA7DCC7C1E8702370058C10B /* openStatesSample.js in Resources */ = {isa = PBXBuildFile; fileRef = AA7DCC7B1E8702370058C10B /* openStatesSample.js */; };
 		AAA5B78E1E86DE7C004CD5FD /* GadflyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */; };
 		AACBD73C1E8B13DE00237D47 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBD73B1E8B13DE00237D47 /* AboutViewController.m */; };
@@ -27,10 +29,9 @@
 		BF65F2F61E8046F6007624E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F51E8046F6007624E9 /* Assets.xcassets */; };
 		BF65F3041E8046F6007624E9 /* GadflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3031E8046F6007624E9 /* GadflyTests.m */; };
 		BF65F30F1E8046F6007624E9 /* GadflyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F30E1E8046F6007624E9 /* GadflyUITests.m */; };
-		BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F31E1E8048CC007624E9 /* GFRep.m */; };
 		BF65F3221E804998007624E9 /* GFScript.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3211E804998007624E9 /* GFScript.m */; };
 		BF65F3251E804B6B007624E9 /* GFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3241E804B6B007624E9 /* GFUser.m */; };
-		C579AD8C5D8C2D2FC7393C92 /* libPods-Gadfly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */; };
+		C579AD8C5D8C2D2FC7393C92 /* libPods-Gadfly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,10 @@
 		73C835644F170CFB6947DD81 /* Pods-GadflyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A49CBFFAA463BC2CB56498D8 /* Pods-GadflyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gadfly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA37CA2F1E8C786800110DE3 /* GFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTag.h; sourceTree = "<group>"; };
+		AA37CA301E8C786800110DE3 /* GFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTag.m; sourceTree = "<group>"; };
+		AA37CA321E8C791D00110DE3 /* GFPoli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPoli.h; sourceTree = "<group>"; };
+		AA37CA331E8C791D00110DE3 /* GFPoli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPoli.m; sourceTree = "<group>"; };
 		AA7DCC7B1E8702370058C10B /* openStatesSample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = openStatesSample.js; sourceTree = "<group>"; };
 		AAA5B78C1E86DE7C004CD5FD /* GadflyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GadflyAPI.h; path = gadfly/GadflyAPI.h; sourceTree = SOURCE_ROOT; };
 		AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GadflyAPI.m; path = gadfly/GadflyAPI.m; sourceTree = SOURCE_ROOT; };
@@ -90,8 +95,6 @@
 		BF65F30A1E8046F6007624E9 /* GadflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GadflyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F30E1E8046F6007624E9 /* GadflyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GadflyUITests.m; sourceTree = "<group>"; };
 		BF65F3101E8046F6007624E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF65F31D1E8048CC007624E9 /* GFRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRep.h; sourceTree = "<group>"; };
-		BF65F31E1E8048CC007624E9 /* GFRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRep.m; sourceTree = "<group>"; };
 		BF65F3201E804998007624E9 /* GFScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFScript.h; sourceTree = "<group>"; };
 		BF65F3211E804998007624E9 /* GFScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFScript.m; sourceTree = "<group>"; };
 		BF65F3231E804B6B007624E9 /* GFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFUser.h; sourceTree = "<group>"; };
@@ -224,10 +227,12 @@
 		BF65F31C1E804890007624E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF65F31D1E8048CC007624E9 /* GFRep.h */,
-				BF65F31E1E8048CC007624E9 /* GFRep.m */,
 				BF65F3201E804998007624E9 /* GFScript.h */,
+				AA37CA321E8C791D00110DE3 /* GFPoli.h */,
+				AA37CA331E8C791D00110DE3 /* GFPoli.m */,
 				BF65F3211E804998007624E9 /* GFScript.m */,
+				AA37CA2F1E8C786800110DE3 /* GFTag.h */,
+				AA37CA301E8C786800110DE3 /* GFTag.m */,
 				BF65F3231E804B6B007624E9 /* GFUser.h */,
 				BF65F3241E804B6B007624E9 /* GFUser.m */,
 			);
@@ -530,11 +535,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA37CA351E8C7A9600110DE3 /* GFPoli.m in Sources */,
 				BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */,
 				BF65F3251E804B6B007624E9 /* GFUser.m in Sources */,
 				BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */,
+				AA37CA311E8C786800110DE3 /* GFTag.m in Sources */,
 				AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */,
-				BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */,
 				AAA5B78E1E86DE7C004CD5FD /* GadflyAPI.m in Sources */,
 				AACBD73C1E8B13DE00237D47 /* AboutViewController.m in Sources */,
 				AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */,
@@ -685,9 +691,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = Gadfly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -700,9 +709,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = H8G3R8S3CC;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = Gadfly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

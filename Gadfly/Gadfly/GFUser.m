@@ -1,15 +1,15 @@
-
-
 #import "GFUser.h"
 
 @implementation GFUser
 
-- (GFUser *)initWithAddress:(NSString *)address{
+- (GFUser *)init {
     GFUser *user=[GFUser new];
-    user.address=address;
-    user.initialized=true;
-    
+    self.initialized=true;
     return user;
+}
+
+- (void)reset {
+    self.initialized=false;
 }
 
 @end

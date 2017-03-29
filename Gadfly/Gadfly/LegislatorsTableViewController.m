@@ -6,7 +6,7 @@
 #import "Legislator.h"
 #import "LegislatorTableViewCell.h"
 #import "ApplicationConstraints.m"
-#import "GFRep.h"
+#import "GFPoli.h"
 #import "GFUser.h"
 
 
@@ -24,11 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   /* GFUser *user= [[GFUser alloc]initWithAddress:@"Grinnell+College"];
-    [GFRep fetchRepsWithUser:user completionHandler:^void(NSArray<GFRep *> *results){
-        _legislators=results;
-    }]*/
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
