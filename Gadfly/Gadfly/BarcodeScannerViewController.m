@@ -20,17 +20,7 @@
     [self.capture.layer removeFromSuperlayer];
 }
 
-// QR code stuff
-// Where should this go?
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    //QR code scanning
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    appDelegate.window.rootViewController= [[BarcodeScannerViewController alloc] initWithNibName:@"BarcodeScannerViewController" bundle:nil];
-    [appDelegate.window makeKeyAndVisible];
-    
-    
     return YES;
 }
 
@@ -223,6 +213,8 @@
     NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
     NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@\nLocation: %@", formatString, result.text, location];
     [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:display waitUntilDone:YES];
+    
+    NSLog(@"Barcode: %@", result.text);
     
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
