@@ -67,6 +67,7 @@
             [self.tableView reloadData]; //refresh table view after data is fetched
         }];
     }];
+
     [dataTask resume];
     return temp_legislators;
 }
@@ -124,7 +125,6 @@
     
     NSData *image_data = [NSData dataWithContentsOfURL:legislator.photo_url];
     UIImage *image = [UIImage imageWithData:image_data];
-    
     cell.legImage.image = image;
     return cell;
 }
@@ -199,5 +199,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
+    
+    Legislator *legislator = (self.legislators)[indexPath.row];
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
+    NSLog(@"The number is %@", phoneNumber);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+}
 
 @end
