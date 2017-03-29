@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O28-8y-ulU" id="8xL-LP-ws1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person_outline" translatesAutoresizingMaskIntoConstraints="NO" id="zvs-YL-ZiT">
@@ -133,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="3000.8000000000002" y="136.28185907046478"/>
         </scene>
-        <!--Barcode Scanner View Controller-->
+        <!--Scan-->
         <scene sceneID="VT3-Z6-UAf">
             <objects>
                 <viewController storyboardIdentifier="barcodeScannerViewController" id="JMm-nr-Mjv" customClass="BarcodeScannerViewController" sceneMemberID="viewController">
@@ -146,6 +146,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Scan" prompt="Scan a QR Code!" id="dEK-6U-xaZ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="MUp-fk-bVE"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZF-48-zmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
