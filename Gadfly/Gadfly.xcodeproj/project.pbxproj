@@ -318,7 +318,7 @@
 				TargetAttributes = {
 					BF65F2E51E8046F5007624E9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VEMF56S2BB;
+						DevelopmentTeam = H8G3R8S3CC;
 						ProvisioningStyle = Automatic;
 					};
 					BF65F2FE1E8046F6007624E9 = {
@@ -678,11 +678,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VEMF56S2BB;
+				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly1;
+				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -693,11 +693,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VEMF56S2BB;
+				DEVELOPMENT_TEAM = H8G3R8S3CC;
 				INFOPLIST_FILE = Gadfly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly1;
+				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
