@@ -1,6 +1,6 @@
 #import "GFRep.h"
 
-static const NSString *repURL = @"http://127.0.0.1:5000/reps";
+static const NSString *repURL = @"http://127.0.0.1:5000/services/v1/getstate/";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFRep

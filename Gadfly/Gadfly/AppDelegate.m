@@ -3,6 +3,8 @@
 #import "LegislatorsTableViewController.h"
 #import "LegislatorTableViewCell.h"
 #import "ApplicationConstraints.m"
+#import "GadflyAPI.h"
+#import "BarcodeScannerViewController.h"
 
 @interface AppDelegate ()
 
@@ -10,36 +12,31 @@
 
 @implementation AppDelegate
 
+
+//NSMutableArray *_legislators; //old code, goes with junkBin
+- (void)junkBin
 {
-    NSMutableArray *_legislators;
+    //something related to transitions from pages
+    /*
+     UINavigationController *navigationController = [navigationController viewControllers][0];
+     LegislatorsTableViewController *legislatorsViewController = [navigationController viewControllers][0]; // BUG HERE
+     legislatorTableViewController.legislators = _legislators;
+     */
+}
+
+// empty method, may be taken care of in storyboard
+- (void)prepareLegislatorTable
+{
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    _legislators = [NSMutableArray arrayWithCapacity:legArraySize];
-    /*
-    Legislator *legislator = [[Legislator alloc] init];
-    legislator.name = @"Joe Goodguy";
-    legislator.phone = @"555-555-5555";
-    [_legislators addObject:legislator];
+    // Put result from API call into local storage
+    _legislatorData = [GadflyAPI GetLegislatorData];
     
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Sue Democrat";
-    legislator.phone = @"666-666-6666";
-    [_legislators addObject:legislator];
-    
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Rogue Politican";
-    legislator.phone = @"123-456-7899";
-    [_legislators addObject:legislator];
-    
-    //something related to transitions from pages
-    LegislatorsTableViewController *legController = (LegislatorsTableViewController *)self.window.rootViewController;
-   // UINavigationController *navigationController = [UITabBarController viewControllers][0]; BUG HERE
-  //  LegislatorsTableViewController *playersViewController = [navigationController viewControllers][0]; BUG HERE
-    legController.legislators = _legislators;
-     */
-    
+    // Set up table for legislator page
+    [self prepareLegislatorTable]; // empty method, may not be needed
+
+
     return YES;
 }
 

@@ -5,7 +5,7 @@
 @implementation GFUser
 
 - (GFUser *)initWithAddress:(NSString *)address{
-    GFUser *user;
+    GFUser *user=[GFUser new];
     user.address=address;
     user.initialized=true;
     
