@@ -73,15 +73,16 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Start new segue method");
+    //NSLog(@"Start new segue method");
     if ([segue.identifier isEqualToString:@"showLegislators"]) {
-        NSLog(@"right segue");
+        //NSLog(@"right segue");
         LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
-        NSLog(@"The addresus passing is %@",self.userAddress);
+        //NSLog(@"The addresus passing is %@",self.userAddress);
         legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
-        NSLog(@"The address passed is %@",legislatorsTableViewController.userAddress);
+        //legislatorsTableViewController.legislators = self.legislators;
+        //NSLog(@"The address passed is %@",legislatorsTableViewController.userAddress);
     }
-    
+    /*
     [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
         LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
         if ([arr count]<2) {
@@ -89,9 +90,11 @@
         }
         else {
             legislatorsTableViewController.legislators=arr;
+            //legislatorsTableViewController.legislators = self.legislators;
+            //NSLog(@"new stuff %@", legislatorsTableViewController.legislators[0]);
             //[legislatorsTableViewController.tableView reloadData];
         }
-    }];
+    }];*/
 
 }
 

@@ -9,8 +9,6 @@
 #import "GFPoli.h"
 #import "GFUser.h"
 
-
-
 @interface LegislatorsTableViewController ()
 
 @property (nonatomic, assign) id delegate;
@@ -24,28 +22,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView reloadData];
-    /*
+    
+    
+    
     [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
         if ([arr count]<2) {
             self.errorMsg=arr[0];
         }
         else {
             self.legislators=arr;
-            [self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                NSLog(@"start to reload data!!!!!!!!");
+                [self.tableView reloadData];
+            });
+
         }
     }];
-     */
 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     // @brief methods to simulate API call
     //self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
     //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
-    
+    /*
+    if([self isViewLoaded])
+    {
+        NSLog(@"yes");
+        [self.tableView reloadData];
+    }*/
     
 }
 
@@ -124,6 +132,7 @@
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"num legs: %lu", [self.legislators count]);
     return [self.legislators count];
 }
 
@@ -137,16 +146,20 @@
     cell.phoneLabel.text = legislator.phone;
     NSString *tagNames=@"";
     NSDictionary *tagDict=[GFTag getTags];
-    for (id tag_id in legislator.tags) {
-        NSString *tag_name=[tagDict valueForKey:tag_id];
+    /*for (id tag_id in legislator.tags) {
+        NSLog(@"%@",tag_id);
+        NSString *ID = (NSString *)tag_id;
+        NSLog(@"%@",ID);
+        NSLog(@"%@",[tagDict valueForKey:ID]);
+        NSString *tag_name=[tagDict valueForKey:ID];
         [tagNames stringByAppendingString:tag_name];
-        [tagNames stringByAppendingString:@" "];
-    }
-    cell.tagsLabel.text = tagNames;
+        //[tagNames stringByAppendingString:@" "];
+    }*/
+    //cell.tagsLabel.text = tagNames;
     cell.partyLabel.text = legislator.party;
     
-    
-    NSData *image_data = [NSData dataWithContentsOfURL:legislator.picURL];
+    NSURL *pic=[NSURL URLWithString:legislator.picURL];
+    NSData *image_data = [NSData dataWithContentsOfURL:pic];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
     return cell;
