@@ -33,24 +33,22 @@
 // @discussion not currently working
 - (NSMutableArray*)getLegislatorDataFromWebservice
 {
-    NSLog(@"start webservice method");
+    //NSLog(@"start webservice method");
     NSMutableArray *temp_legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [json enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            //NSLog(@"%@", obj);
             NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
             NSString *current_phone = offices[@"phone"];
             NSString *current_name = obj[@"full_name"];
             
-            //NSLog(@"%@", image_data);
             Legislator *legislator = [[Legislator alloc] init];
             legislator.name = current_name;
             legislator.phone = current_phone;
             legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
             [temp_legislators addObject:legislator];
-            //UITableViewController *tvc = (UITableViewController *)self;
-           // [tvc.tableView reloadData]; //refresh table view after data is fetched // BUG HERE not a table view controller
             [self.legislatorTable reloadData];
         }];
     }];
@@ -69,20 +67,20 @@
 
 // @brief Change if multiple sections are wanted.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"start num sections method");
+    //NSLog(@"start num sections method");
     return 1;
 }
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"start num rows method");
+    //NSLog(@"start num rows method");
     return [self.legislators count];
 }
 
 // @brief method to dequeue and populate custom cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"start cell for row method");
+    //NSLog(@"start cell for row method");
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
     Legislator *legislator = (self.legislators)[indexPath.row];

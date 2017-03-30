@@ -9,7 +9,8 @@ const NSTimeInterval timeoutInterval = 60.0;
 @implementation GFTag
 
 + (void)initTags {
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
+    NSURL *url=[NSURL URLWithString:URL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
     [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     

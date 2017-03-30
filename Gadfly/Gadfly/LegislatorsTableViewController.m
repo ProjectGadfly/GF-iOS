@@ -24,22 +24,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView reloadData];
+    /*
+    [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
+        if ([arr count]<2) {
+            self.errorMsg=arr[0];
+        }
+        else {
+            self.legislators=arr;
+            [self.tableView reloadData];
+        }
+    }];
+     */
 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    // @brief methods to simulate API calls
-    
-    self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+    // @brief methods to simulate API call
+    //self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
     //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
+    
+    
 }
 
-
+/*
 // @brief method to simulate API by connecting to mpls.cx and reading sample json
 // @discussion not currently working
 - (NSMutableArray*)getLegislatorDataFromWebservice
@@ -50,14 +60,20 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [json enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%@", obj);
+            //NSLog(@"%@", obj[@"party"]);
+           // NSLog(@"%@", obj[@"level"]);
             NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
             NSString *current_phone = offices[@"phone"];
             NSString *current_name = obj[@"full_name"];
+            NSString *current_party = obj[@"party"];
+            
  
             //NSLog(@"%@", image_data);
             Legislator *legislator = [[Legislator alloc] init];
             legislator.name = current_name;
             legislator.phone = current_phone;
+            legislator.tags = current_party;
             legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
             [temp_legislators addObject:legislator];
             [self.tableView reloadData]; //refresh table view after data is fetched
@@ -67,6 +83,7 @@
     [dataTask resume];
     return temp_legislators;
 }
+ */
 
 /*
 // @brief method to simular API by using sample data
@@ -115,26 +132,66 @@
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
+    GFPoli *legislator = (self.legislators)[indexPath.row];
+    cell.nameLabel.text = legislator.name;
+    cell.phoneLabel.text = legislator.phone;
+    NSString *tagNames=@"";
+    NSDictionary *tagDict=[GFTag getTags];
+    for (id tag_id in legislator.tags) {
+        NSString *tag_name=[tagDict valueForKey:tag_id];
+        [tagNames stringByAppendingString:tag_name];
+        [tagNames stringByAppendingString:@" "];
+    }
+    cell.tagsLabel.text = tagNames;
+    cell.partyLabel.text = legislator.party;
+    
+    
+    NSData *image_data = [NSData dataWithContentsOfURL:legislator.picURL];
+    UIImage *image = [UIImage imageWithData:image_data];
+    cell.legImage.image = image;
+    return cell;
+    /*
+    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
+    
     Legislator *legislator = (self.legislators)[indexPath.row];
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
+    cell.tagsLabel.text = legislator.tags;
     
     NSData *image_data = [NSData dataWithContentsOfURL:legislator.photo_url];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
     return cell;
+  */
 }
 
+/*
 // @brief Segue between splash page and legislator page
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{ 
+    NSLog(@"HERERERERERE22222");
+   
     if ([segue.identifier isEqualToString:@"showLegislators"]) {
         
-        UINavigationController *navigationController = segue.destinationViewController;
-        LegislatorsTableViewController *legislatorsTableViewController = [navigationController viewControllers][0];
+        UINavigationController *firstNavigationController = segue.destinationViewController;
+        LegislatorsTableViewController *legislatorsTableViewController = [firstNavigationController viewControllers][0];
         legislatorsTableViewController.delegate = self;
+        UINavigationController *secondNavigationController = segue.sourceViewController;
+        SplashPageViewController *splashPageViewController = [secondNavigationController viewControllers][0];
+        NSLog(@"The address passing is %@",splashPageViewController.userAddress);
+        self.userAddress = splashPageViewController.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
+        NSLog(@"The address passed is %@",self.userAddress);
     }
-}
+   
+ 
+    if ([segue.identifier isEqualToString:@"showLegislators"]) {
+        //UINavigationController *firstNavigationController = segue.destinationViewController;
+        //LegislatorsTableViewController *legislatorsTableViewController = [firstNavigationController viewControllers][0];
+        self.delegate = self;
+ 
+    }
+}*/
+
 
 /* @brief, hack to fix cell height
    @discussion Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell

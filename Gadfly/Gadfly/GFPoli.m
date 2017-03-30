@@ -31,12 +31,16 @@ const NSTimeInterval timeoutInterval = 60.0;
 + (void)fetchPoliWithAddress:(NSString *)address
            completionHandler:(void(^_Nonnull)(NSArray *))completion {
     
+    NSLog(@"Start to fetch Polis!!!!!!!!!!!!!!!!!! THE ADDRESS IS %@",address);
+    
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
     
     NSURLComponents *components = [NSURLComponents componentsWithString:URL];
     components.queryItems = queryItems;
     NSURL *poliURL = components.URL;
+    
+    NSLog(@"The url is %@",poliURL);
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
@@ -55,8 +59,10 @@ const NSTimeInterval timeoutInterval = 60.0;
         NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        NSLog(@"%@",result);
         NSString *status=[result valueForKey:@"Status"];
         if (![status isEqualToString:@"OK"]){
+            NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
             NSMutableArray *error=[NSMutableArray new];
             [error addObject:status];
             completion(error);
