@@ -196,6 +196,7 @@
                     </view>
                     <connections>
                         <outlet property="callScript" destination="P9e-St-Xd3" id="agx-KN-f5k"/>
+                        <outlet property="legislatorTable" destination="O23-nS-R2a" id="ckt-S6-W0b"/>
                         <outlet property="scriptTitle" destination="1ql-jB-Ctu" id="AuZ-HL-Gqb"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,7 @@
 @interface ScriptViewController ()
 
 @property (nonatomic, assign) id delegate;
+@property (weak, nonatomic) IBOutlet UITableView *legislatorTable;
 
 @end
 
@@ -46,6 +47,7 @@
             [temp_legislators addObject:legislator];
             //UITableViewController *tvc = (UITableViewController *)self;
            // [tvc.tableView reloadData]; //refresh table view after data is fetched // BUG HERE not a table view controller
+            [_legislatorTable reloadData];
         }];
     }];
     
@@ -79,7 +81,6 @@
     cell.legImage.image = image;
     return cell;
 }
-
 
 /*
 #pragma mark - Navigation
