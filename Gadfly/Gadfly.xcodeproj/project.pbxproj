@@ -7,17 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3458555F7A335BA8CE2ADD60 /* libPods-GadflyUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CCA4890EE81A7AA13FF678 /* libPods-GadflyUITests.a */; };
+		555438B2BCF00029E8403B42 /* libPods-GadflyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 350958658E922EEE2AD8E35D /* libPods-GadflyTests.a */; };
+		AA37CA311E8C786800110DE3 /* GFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = AA37CA301E8C786800110DE3 /* GFTag.m */; };
+		AA37CA351E8C7A9600110DE3 /* GFPoli.m in Sources */ = {isa = PBXBuildFile; fileRef = AA37CA331E8C791D00110DE3 /* GFPoli.m */; };
+		AA7DCC7C1E8702370058C10B /* openStatesSample.js in Resources */ = {isa = PBXBuildFile; fileRef = AA7DCC7B1E8702370058C10B /* openStatesSample.js */; };
+		AAA5B78E1E86DE7C004CD5FD /* GadflyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */; };
+		AACBD73C1E8B13DE00237D47 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACBD73B1E8B13DE00237D47 /* AboutViewController.m */; };
+		AAF9AEAE1E8C65D8004F5FFB /* ScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */; };
+		AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */; };
+		AAF9BE361E85C70900D0008A /* Legislator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE351E85C70900D0008A /* Legislator.m */; };
+		AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */; };
+		AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */; };
+		AAFA010E1E8C129A0030199B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AAFA010D1E8C129A0030199B /* Podfile */; };
+		AAFA01131E8C14B80030199B /* BarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */; };
+		AAFA01141E8C14B80030199B /* BarcodeScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */; };
 		BF65F2EB1E8046F6007624E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2EA1E8046F6007624E9 /* main.m */; };
 		BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2ED1E8046F6007624E9 /* AppDelegate.m */; };
-		BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* ViewController.m */; };
+		BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */; };
 		BF65F2F41E8046F6007624E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F21E8046F6007624E9 /* Main.storyboard */; };
 		BF65F2F61E8046F6007624E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F51E8046F6007624E9 /* Assets.xcassets */; };
-		BF65F2F91E8046F6007624E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */; };
 		BF65F3041E8046F6007624E9 /* GadflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3031E8046F6007624E9 /* GadflyTests.m */; };
 		BF65F30F1E8046F6007624E9 /* GadflyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F30E1E8046F6007624E9 /* GadflyUITests.m */; };
-		BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F31E1E8048CC007624E9 /* GFRep.m */; };
 		BF65F3221E804998007624E9 /* GFScript.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3211E804998007624E9 /* GFScript.m */; };
 		BF65F3251E804B6B007624E9 /* GFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF65F3241E804B6B007624E9 /* GFUser.m */; };
+		C579AD8C5D8C2D2FC7393C92 /* libPods-Gadfly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +52,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12CCA4890EE81A7AA13FF678 /* libPods-GadflyUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GadflyUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31B8EC7678C61DE526C0BDE3 /* Pods-GadflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		350958658E922EEE2AD8E35D /* libPods-GadflyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GadflyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73C835644F170CFB6947DD81 /* Pods-GadflyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A49CBFFAA463BC2CB56498D8 /* Pods-GadflyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gadfly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA37CA2F1E8C786800110DE3 /* GFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTag.h; sourceTree = "<group>"; };
+		AA37CA301E8C786800110DE3 /* GFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTag.m; sourceTree = "<group>"; };
+		AA37CA321E8C791D00110DE3 /* GFPoli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPoli.h; sourceTree = "<group>"; };
+		AA37CA331E8C791D00110DE3 /* GFPoli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPoli.m; sourceTree = "<group>"; };
+		AA7DCC7B1E8702370058C10B /* openStatesSample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = openStatesSample.js; sourceTree = "<group>"; };
+		AAA5B78C1E86DE7C004CD5FD /* GadflyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GadflyAPI.h; path = gadfly/GadflyAPI.h; sourceTree = SOURCE_ROOT; };
+		AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GadflyAPI.m; path = gadfly/GadflyAPI.m; sourceTree = SOURCE_ROOT; };
+		AACBD73A1E8B13DE00237D47 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		AACBD73B1E8B13DE00237D47 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		AAF9AEAC1E8C65D8004F5FFB /* ScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptViewController.h; sourceTree = "<group>"; };
+		AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptViewController.m; sourceTree = "<group>"; };
+		AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorsTableViewController.h; sourceTree = "<group>"; };
+		AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorsTableViewController.m; sourceTree = "<group>"; };
+		AAF9BE341E85C70900D0008A /* Legislator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Legislator.h; sourceTree = "<group>"; };
+		AAF9BE351E85C70900D0008A /* Legislator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Legislator.m; sourceTree = "<group>"; };
+		AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationConstraints.m; sourceTree = "<group>"; };
+		AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegislatorTableViewCell.h; sourceTree = "<group>"; };
+		AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegislatorTableViewCell.m; sourceTree = "<group>"; };
+		AAFA010D1E8C129A0030199B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AAFA01101E8C14B80030199B /* BarcodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeScannerViewController.h; sourceTree = "<group>"; };
+		AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeScannerViewController.m; sourceTree = "<group>"; };
+		AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarcodeScannerViewController.xib; path = Gadfly/BarcodeScannerViewController.xib; sourceTree = SOURCE_ROOT; };
 		BF65F2E61E8046F6007624E9 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F2EA1E8046F6007624E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF65F2EC1E8046F6007624E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF65F2ED1E8046F6007624E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF65F2EF1E8046F6007624E9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BF65F2F01E8046F6007624E9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BF65F2EF1E8046F6007624E9 /* SplashPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashPageViewController.h; sourceTree = "<group>"; };
+		BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashPageViewController.m; sourceTree = "<group>"; };
 		BF65F2F31E8046F6007624E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF65F2F51E8046F6007624E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF65F2F81E8046F6007624E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF65F2FA1E8046F6007624E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF65F2FF1E8046F6007624E9 /* GadflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GadflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F3031E8046F6007624E9 /* GadflyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GadflyTests.m; sourceTree = "<group>"; };
@@ -54,12 +95,13 @@
 		BF65F30A1E8046F6007624E9 /* GadflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GadflyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF65F30E1E8046F6007624E9 /* GadflyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GadflyUITests.m; sourceTree = "<group>"; };
 		BF65F3101E8046F6007624E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF65F31D1E8048CC007624E9 /* GFRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRep.h; sourceTree = "<group>"; };
-		BF65F31E1E8048CC007624E9 /* GFRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRep.m; sourceTree = "<group>"; };
 		BF65F3201E804998007624E9 /* GFScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFScript.h; sourceTree = "<group>"; };
 		BF65F3211E804998007624E9 /* GFScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFScript.m; sourceTree = "<group>"; };
 		BF65F3231E804B6B007624E9 /* GFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFUser.h; sourceTree = "<group>"; };
 		BF65F3241E804B6B007624E9 /* GFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFUser.m; sourceTree = "<group>"; };
+		D249C6ACB41F72314651C030 /* Pods-GadflyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.release.xcconfig"; sourceTree = "<group>"; };
+		EB46FCC158319C4FBF6AFD0A /* Pods-Gadfly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gadfly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gadfly/Pods-Gadfly.release.xcconfig"; sourceTree = "<group>"; };
+		F443695B04E6D4940B6590E1 /* Pods-Gadfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gadfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gadfly/Pods-Gadfly.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C579AD8C5D8C2D2FC7393C92 /* libPods-Gadfly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555438B2BCF00029E8403B42 /* libPods-GadflyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,12 +125,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3458555F7A335BA8CE2ADD60 /* libPods-GadflyUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13A70C46415A5C26631C5BA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6E4B5070CFC8F2188E3983D /* libPods-Gadfly.a */,
+				350958658E922EEE2AD8E35D /* libPods-GadflyTests.a */,
+				12CCA4890EE81A7AA13FF678 /* libPods-GadflyUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF65F2DD1E8046F5007624E9 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +149,8 @@
 				BF65F3021E8046F6007624E9 /* GadflyTests */,
 				BF65F30D1E8046F6007624E9 /* GadflyUITests */,
 				BF65F2E71E8046F6007624E9 /* Products */,
+				E12AD4C7080984160BB4C472 /* Pods */,
+				13A70C46415A5C26631C5BA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,14 +167,31 @@
 		BF65F2E81E8046F6007624E9 /* Gadfly */ = {
 			isa = PBXGroup;
 			children = (
+				AAF9BE371E85C7CD00D0008A /* ApplicationConstraints.m */,
 				BF65F2EC1E8046F6007624E9 /* AppDelegate.h */,
 				BF65F2ED1E8046F6007624E9 /* AppDelegate.m */,
-				BF65F2EF1E8046F6007624E9 /* ViewController.h */,
-				BF65F2F01E8046F6007624E9 /* ViewController.m */,
+				AACBD73A1E8B13DE00237D47 /* AboutViewController.h */,
+				AACBD73B1E8B13DE00237D47 /* AboutViewController.m */,
+				BF65F2EF1E8046F6007624E9 /* SplashPageViewController.h */,
+				BF65F2F01E8046F6007624E9 /* SplashPageViewController.m */,
+				AAA5B78C1E86DE7C004CD5FD /* GadflyAPI.h */,
+				AAA5B78D1E86DE7C004CD5FD /* GadflyAPI.m */,
 				BF65F2F21E8046F6007624E9 /* Main.storyboard */,
+				AAFA01101E8C14B80030199B /* BarcodeScannerViewController.h */,
+				AAFA01111E8C14B80030199B /* BarcodeScannerViewController.m */,
+				AAFA01121E8C14B80030199B /* BarcodeScannerViewController.xib */,
+				AAF9BE391E85CC6900D0008A /* LegislatorTableViewCell.h */,
+				AAF9BE3A1E85CC6900D0008A /* LegislatorTableViewCell.m */,
+				AAF9BE311E85C67300D0008A /* LegislatorsTableViewController.h */,
+				AAF9BE321E85C67300D0008A /* LegislatorsTableViewController.m */,
+				AAF9BE341E85C70900D0008A /* Legislator.h */,
+				AAF9BE351E85C70900D0008A /* Legislator.m */,
+				AAF9AEAC1E8C65D8004F5FFB /* ScriptViewController.h */,
+				AAF9AEAD1E8C65D8004F5FFB /* ScriptViewController.m */,
+				AA7DCC7B1E8702370058C10B /* openStatesSample.js */,
 				BF65F2F51E8046F6007624E9 /* Assets.xcassets */,
-				BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */,
 				BF65F2FA1E8046F6007624E9 /* Info.plist */,
+				AAFA010D1E8C129A0030199B /* Podfile */,
 				BF65F31C1E804890007624E9 /* Classes */,
 				BF65F2E91E8046F6007624E9 /* Supporting Files */,
 			);
@@ -153,14 +227,29 @@
 		BF65F31C1E804890007624E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF65F31D1E8048CC007624E9 /* GFRep.h */,
-				BF65F31E1E8048CC007624E9 /* GFRep.m */,
 				BF65F3201E804998007624E9 /* GFScript.h */,
+				AA37CA321E8C791D00110DE3 /* GFPoli.h */,
+				AA37CA331E8C791D00110DE3 /* GFPoli.m */,
 				BF65F3211E804998007624E9 /* GFScript.m */,
+				AA37CA2F1E8C786800110DE3 /* GFTag.h */,
+				AA37CA301E8C786800110DE3 /* GFTag.m */,
 				BF65F3231E804B6B007624E9 /* GFUser.h */,
 				BF65F3241E804B6B007624E9 /* GFUser.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		E12AD4C7080984160BB4C472 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F443695B04E6D4940B6590E1 /* Pods-Gadfly.debug.xcconfig */,
+				EB46FCC158319C4FBF6AFD0A /* Pods-Gadfly.release.xcconfig */,
+				31B8EC7678C61DE526C0BDE3 /* Pods-GadflyTests.debug.xcconfig */,
+				D249C6ACB41F72314651C030 /* Pods-GadflyTests.release.xcconfig */,
+				73C835644F170CFB6947DD81 /* Pods-GadflyUITests.debug.xcconfig */,
+				A49CBFFAA463BC2CB56498D8 /* Pods-GadflyUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF65F3131E8046F6007624E9 /* Build configuration list for PBXNativeTarget "Gadfly" */;
 			buildPhases = (
+				2DFF6ADA1BC2CE44E263CB14 /* [CP] Check Pods Manifest.lock */,
 				BF65F2E21E8046F5007624E9 /* Sources */,
 				BF65F2E31E8046F5007624E9 /* Frameworks */,
 				BF65F2E41E8046F5007624E9 /* Resources */,
+				E1933E2BB898918F7A27DBD6 /* [CP] Embed Pods Frameworks */,
+				E4912E563413F2CCE02DBDB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,9 +279,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF65F3161E8046F6007624E9 /* Build configuration list for PBXNativeTarget "GadflyTests" */;
 			buildPhases = (
+				700A92E751C759F2E486D270 /* [CP] Check Pods Manifest.lock */,
 				BF65F2FB1E8046F6007624E9 /* Sources */,
 				BF65F2FC1E8046F6007624E9 /* Frameworks */,
 				BF65F2FD1E8046F6007624E9 /* Resources */,
+				5EC945B9228F19206E3A21BF /* [CP] Embed Pods Frameworks */,
+				1736D3AE3440CDA8422EF817 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,9 +300,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF65F3191E8046F6007624E9 /* Build configuration list for PBXNativeTarget "GadflyUITests" */;
 			buildPhases = (
+				D117FD763BFA24E8D239E923 /* [CP] Check Pods Manifest.lock */,
 				BF65F3061E8046F6007624E9 /* Sources */,
 				BF65F3071E8046F6007624E9 /* Frameworks */,
 				BF65F3081E8046F6007624E9 /* Resources */,
+				7424DFA4F280E7D90DE8E7E6 /* [CP] Embed Pods Frameworks */,
+				DF7A69050E8B724C327DADEC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,6 +328,7 @@
 				TargetAttributes = {
 					BF65F2E51E8046F5007624E9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = H8G3R8S3CC;
 						ProvisioningStyle = Automatic;
 					};
 					BF65F2FE1E8046F6007624E9 = {
@@ -269,8 +368,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF65F2F91E8046F6007624E9 /* LaunchScreen.storyboard in Resources */,
+				AAFA01141E8C14B80030199B /* BarcodeScannerViewController.xib in Resources */,
+				AA7DCC7C1E8702370058C10B /* openStatesSample.js in Resources */,
 				BF65F2F61E8046F6007624E9 /* Assets.xcassets in Resources */,
+				AAFA010E1E8C129A0030199B /* Podfile in Resources */,
 				BF65F2F41E8046F6007624E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,17 +392,164 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1736D3AE3440CDA8422EF817 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DFF6ADA1BC2CE44E263CB14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5EC945B9228F19206E3A21BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		700A92E751C759F2E486D270 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7424DFA4F280E7D90DE8E7E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D117FD763BFA24E8D239E923 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF7A69050E8B724C327DADEC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1933E2BB898918F7A27DBD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gadfly/Pods-Gadfly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4912E563413F2CCE02DBDB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gadfly/Pods-Gadfly-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF65F2E21E8046F5007624E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF65F2F11E8046F6007624E9 /* ViewController.m in Sources */,
+				AA37CA351E8C7A9600110DE3 /* GFPoli.m in Sources */,
+				BF65F2F11E8046F6007624E9 /* SplashPageViewController.m in Sources */,
 				BF65F3251E804B6B007624E9 /* GFUser.m in Sources */,
 				BF65F2EE1E8046F6007624E9 /* AppDelegate.m in Sources */,
-				BF65F31F1E8048CC007624E9 /* GFRep.m in Sources */,
+				AA37CA311E8C786800110DE3 /* GFTag.m in Sources */,
+				AAF9BE3B1E85CC6900D0008A /* LegislatorTableViewCell.m in Sources */,
+				AAA5B78E1E86DE7C004CD5FD /* GadflyAPI.m in Sources */,
+				AACBD73C1E8B13DE00237D47 /* AboutViewController.m in Sources */,
+				AAF9BE381E85C7CD00D0008A /* ApplicationConstraints.m in Sources */,
 				BF65F2EB1E8046F6007624E9 /* main.m in Sources */,
+				AAF9BE361E85C70900D0008A /* Legislator.m in Sources */,
+				AAFA01131E8C14B80030199B /* BarcodeScannerViewController.m in Sources */,
+				AAF9AEAE1E8C65D8004F5FFB /* ScriptViewController.m in Sources */,
 				BF65F3221E804998007624E9 /* GFScript.m in Sources */,
+				AAF9BE331E85C67300D0008A /* LegislatorsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,14 +591,6 @@
 				BF65F2F31E8046F6007624E9 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BF65F2F71E8046F6007624E9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF65F2F81E8046F6007624E9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -446,10 +686,17 @@
 		};
 		BF65F3141E8046F6007624E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F443695B04E6D4940B6590E1 /* Pods-Gadfly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H8G3R8S3CC;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = Gadfly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -457,10 +704,17 @@
 		};
 		BF65F3151E8046F6007624E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB46FCC158319C4FBF6AFD0A /* Pods-Gadfly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H8G3R8S3CC;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = Gadfly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Gadfly.Gadfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -468,6 +722,7 @@
 		};
 		BF65F3171E8046F6007624E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31B8EC7678C61DE526C0BDE3 /* Pods-GadflyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GadflyTests/Info.plist;
@@ -480,6 +735,7 @@
 		};
 		BF65F3181E8046F6007624E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D249C6ACB41F72314651C030 /* Pods-GadflyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GadflyTests/Info.plist;
@@ -492,6 +748,7 @@
 		};
 		BF65F31A1E8046F6007624E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73C835644F170CFB6947DD81 /* Pods-GadflyUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GadflyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -503,6 +760,7 @@
 		};
 		BF65F31B1E8046F6007624E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A49CBFFAA463BC2CB56498D8 /* Pods-GadflyUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GadflyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

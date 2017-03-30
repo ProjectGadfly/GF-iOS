@@ -1,6 +1,10 @@
-
-
 #import "AppDelegate.h"
+#import "Legislator.h"
+#import "LegislatorsTableViewController.h"
+#import "LegislatorTableViewCell.h"
+#import "ApplicationConstraints.m"
+#import "GadflyAPI.h"
+#import "BarcodeScannerViewController.h"
 
 @interface AppDelegate ()
 
@@ -9,11 +13,32 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+//NSMutableArray *_legislators; //old code, goes with junkBin
+- (void)junkBin
+{
+    //something related to transitions from pages
+    /*
+     UINavigationController *navigationController = [navigationController viewControllers][0];
+     LegislatorsTableViewController *legislatorsViewController = [navigationController viewControllers][0]; // BUG HERE
+     legislatorTableViewController.legislators = _legislators;
+     */
 }
 
+// empty method, may be taken care of in storyboard
+- (void)prepareLegislatorTable
+{
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Put result from API call into local storage
+    _legislatorData = [GadflyAPI GetLegislatorData];
+    
+    // Set up table for legislator page
+    [self prepareLegislatorTable]; // empty method, may not be needed
+
+
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,6 +65,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end
