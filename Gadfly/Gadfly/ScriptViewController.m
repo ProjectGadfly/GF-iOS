@@ -44,8 +44,8 @@
             legislator.phone = current_phone;
             legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
             [temp_legislators addObject:legislator];
-            UITableViewController *tvc = (UITableViewController *)self;
-            [tvc.tableView reloadData]; //refresh table view after data is fetched // BUG HERE not a table view controller
+            //UITableViewController *tvc = (UITableViewController *)self;
+           // [tvc.tableView reloadData]; //refresh table view after data is fetched // BUG HERE not a table view controller
         }];
     }];
     
