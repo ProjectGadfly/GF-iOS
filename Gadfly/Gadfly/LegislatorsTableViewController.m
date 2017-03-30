@@ -198,7 +198,6 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
-    
     Legislator *legislator = (self.legislators)[indexPath.row];
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
     NSLog(@"The number is %@", phoneNumber);

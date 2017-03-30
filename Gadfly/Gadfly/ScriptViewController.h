@@ -4,4 +4,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *scriptTitle;
 @property (weak, nonatomic) IBOutlet UITextView *callScript;
 @property (nonatomic, strong) NSMutableArray *legislators;
+@property (nonatomic, strong) IBOutlet UITableView *legislatorTable;
 @end
