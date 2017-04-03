@@ -3,6 +3,7 @@
 static const NSString *URL = @"http://gadfly.mobi/services/v1/representatives";
 static const NSString *APIKey = @"v1key";
 const NSTimeInterval timeoutInterval = 60.0;
+BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid error
 
 @implementation GFPoli
 
@@ -63,6 +64,61 @@ const NSTimeInterval timeoutInterval = 60.0;
         NSString *status=[result valueForKey:@"Status"];
         if (![status isEqualToString:@"OK"]){
             NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
+            /*if(callAgain) {
+                //to handle bug where we need to submit address twice to avoid error
+                callAgain = NO;
+                NSLog(@"Second try THE ADDRESS IS %@",address);
+                
+                NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
+                [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
+                
+                NSURLComponents *components = [NSURLComponents componentsWithString:URL];
+                components.queryItems = queryItems;
+                NSURL *poliURL = components.URL;
+                
+                NSLog(@"The url is %@",poliURL);
+                
+                NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
+                [req setHTTPMethod:@"GET"];
+                [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
+                
+                NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                    if (error) {
+                        NSLog(@"Fetch State Unseccessful!");
+                        return;
+                    }
+                    if (!(response)){
+                        NSLog(@"No Response!");
+                        return;
+                    }
+                    NSLog(@"Successful!");
+                    NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
+                    NSError *JSONParsingError;
+                    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+                    NSLog(@"%@",result);
+                    NSString *status=[result valueForKey:@"Status"];
+                    if (![status isEqualToString:@"OK"]){
+                        NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
+                        if(callAgain) {
+                            //to handle bug where we need to submit address twice to avoid error
+                            
+                        }
+                        NSMutableArray *error=[NSMutableArray new];
+                        [error addObject:status];
+                        completion(error);
+                    }
+                    else {
+                        NSMutableArray *arr=[result valueForKey:@"Results"];
+                        for (NSDictionary *entry in arr){
+                            GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
+                            NSLog(@"%@",poli);
+                            [polis addObject:poli];
+                        }
+                        completion(polis);
+                    }
+                }];
+                [task resume];
+            }*/
             NSMutableArray *error=[NSMutableArray new];
             [error addObject:status];
             completion(error);
