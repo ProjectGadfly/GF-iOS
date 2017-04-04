@@ -131,6 +131,7 @@
                                     <outlet property="nameLabel" destination="hxH-gV-O0L" id="5WB-7p-VR0"/>
                                     <outlet property="partyLabel" destination="9SR-Al-0yr" id="mGl-7J-EP1"/>
                                     <outlet property="phoneLabel" destination="a1I-IS-IvU" id="MM1-S6-SNK"/>
+                                    <outlet property="tagsLabel" destination="ORk-3x-ptm" id="I8x-qK-VjY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

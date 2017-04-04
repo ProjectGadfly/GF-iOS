@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     
-    
+    //Call to API
     [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
         if ([arr count]<2) {
             self.errorMsg=arr[0];
@@ -44,78 +44,10 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    // @brief methods to simulate API call
-    //self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
-    //self.legislators = [self getLegislatorData]; //uses local data @see getLegislatorData
-    /*
-    if([self isViewLoaded])
-    {
-        NSLog(@"yes");
-        [self.tableView reloadData];
-    }*/
+
     
 }
 
-/*
-// @brief method to simulate API by connecting to mpls.cx and reading sample json
-// @discussion not currently working
-- (NSMutableArray*)getLegislatorDataFromWebservice
-{
-    //NSLog(@"start webservice method");
-    NSMutableArray *temp_legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [json enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSLog(@"%@", obj);
-            //NSLog(@"%@", obj[@"party"]);
-           // NSLog(@"%@", obj[@"level"]);
-            NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
-            NSString *current_phone = offices[@"phone"];
-            NSString *current_name = obj[@"full_name"];
-            NSString *current_party = obj[@"party"];
-            
- 
-            //NSLog(@"%@", image_data);
-            Legislator *legislator = [[Legislator alloc] init];
-            legislator.name = current_name;
-            legislator.phone = current_phone;
-            legislator.tags = current_party;
-            legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
-            [temp_legislators addObject:legislator];
-            [self.tableView reloadData]; //refresh table view after data is fetched
-        }];
-    }];
-
-    [dataTask resume];
-    return temp_legislators;
-}
- */
-
-/*
-// @brief method to simular API by using sample data
-- (NSMutableArray*) getLegislatorData
-{
-    NSMutableArray *legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
-    
-    Legislator *legislator = [[Legislator alloc] init];
-    legislator.name = @"Joe Goodguy";
-    legislator.phone = @"555-555-5555";
-    [legislators addObject:legislator];
-    
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Sue Democrat";
-    legislator.phone = @"666-666-6666";
-    [legislators addObject:legislator];
-    
-    legislator = [[Legislator alloc] init];
-    legislator.name = @"Rogue Politican";
-    legislator.phone = @"123-456-7899";
-    [legislators addObject:legislator];
-    
-    return legislators;
-}*/
 
 
 - (void)didReceiveMemoryWarning {
@@ -145,17 +77,22 @@
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
     NSString *tagNames=@"";
+    
     NSDictionary *tagDict=[GFTag getTags];
-    /*for (id tag_id in legislator.tags) {
+    for (id tag_id in legislator.tags) {
         NSLog(@"%@",tag_id);
         NSString *ID = (NSString *)tag_id;
         NSLog(@"%@",ID);
-        NSLog(@"%@",[tagDict valueForKey:ID]);
-        NSString *tag_name=[tagDict valueForKey:ID];
-        [tagNames stringByAppendingString:tag_name];
-        //[tagNames stringByAppendingString:@" "];
-    }*/
-    //cell.tagsLabel.text = tagNames;
+        NSString *tag_name=[tagDict valueForKey:@"3"];
+        NSLog(@"tag_name!!!!!!!%@",tag_name);
+        tagNames=[tagNames stringByAppendingString:tag_name];
+        NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
+        tagNames=[tagNames stringByAppendingString:@" "];
+        NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
+    }
+    NSLog(@"tag!!!!!!!!!%@",tagNames);
+    cell.tagsLabel.text = tagNames;
+    
     cell.partyLabel.text = legislator.party;
     
     NSURL *pic=[NSURL URLWithString:legislator.picURL];
