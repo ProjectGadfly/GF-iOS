@@ -3,7 +3,6 @@
  @detail placeholder code for now
  */
 
-
 #import "GadflyAPI.h"
 #import "ApplicationConstraints.m"
 #import "Legislator.h"
