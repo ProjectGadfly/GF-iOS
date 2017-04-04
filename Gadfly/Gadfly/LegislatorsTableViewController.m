@@ -69,31 +69,32 @@
     
     NSArray *polis = [GFUser getPolis];
     NSLog(@"Polis!!!!!!!%@",polis);
-    GFPoli *legislator = polis[indexPath.row];
-    cell.nameLabel.text = legislator.name;
-    cell.phoneLabel.text = legislator.phone;
+    GFPoli *poli = polis[indexPath.row];
+    cell.nameLabel.text = poli.name;
+    cell.phoneLabel.text = poli.phone;
     NSString *tagNames=@"";
     
     NSDictionary *tagDict=[GFTag getTags];
-    for (id tag_id in legislator.tags) {
+    for (id tag_id in poli.tags) {
         NSLog(@"%@",tag_id);
         //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
         //NSString *ID = (NSString *)tag_id;
         //NSLog(@"%@",ID);
         //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
         NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
+        tagNames=[@" " stringByAppendingString:tagNames];
         NSLog(@"tag_name!!!!!!!%@",tag_name);
-        tagNames=[tagNames stringByAppendingString:tag_name];
+        tagNames=[tag_name stringByAppendingString:tagNames];
         NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
-        tagNames=[tagNames stringByAppendingString:@" "];
+        
         NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
     NSLog(@"tag!!!!!!!!!%@",tagNames);
-    cell.tagsLabel.text = tagNames;
+    cell.tagsLabel.text = [tagNames capitalizedString];
     
-    cell.partyLabel.text = legislator.party;
+    cell.partyLabel.text = poli.party;
     
-    NSURL *pic=[NSURL URLWithString:legislator.picURL];
+    NSURL *pic=[NSURL URLWithString:poli.picURL];
     NSData *image_data = [NSData dataWithContentsOfURL:pic];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;

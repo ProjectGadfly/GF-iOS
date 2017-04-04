@@ -100,14 +100,15 @@
         //NSLog(@"%@",ID);
         //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
         NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
+        tagNames=[@" " stringByAppendingString:tagNames];
         NSLog(@"tag_name!!!!!!!%@",tag_name);
-        tagNames=[tagNames stringByAppendingString:tag_name];
+        tagNames=[tag_name stringByAppendingString:tagNames];
         NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
-        tagNames=[tagNames stringByAppendingString:@" "];
+        
         NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
     NSLog(@"tag!!!!!!!!!%@",tagNames);
-    cell.tagsLabel.text = tagNames;
+    cell.tagsLabel.text = [tagNames capitalizedString];
     
     NSURL *picURL=[NSURL URLWithString:poli.picURL];
     NSData *image_data = [NSData dataWithContentsOfURL:picURL];
