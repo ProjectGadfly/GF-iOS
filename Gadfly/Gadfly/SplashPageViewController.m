@@ -29,6 +29,16 @@
     NSLog(@"%@",self.userAddress);
     [userInput endEditing:YES];
     NSLog(@"Received: %@", self.userAddress);
+    
+    //Call to API
+    [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
+        if ([arr count]<2) {
+            self.errorMsg=arr[0];
+        }
+        else {
+            [GFUser cachePolis:arr];
+        }
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -38,9 +48,15 @@
         //NSLog(@"right segue");
         LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
         //NSLog(@"The addresus passing is %@",self.userAddress);
-        legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
+       // legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
         //legislatorsTableViewController.legislators = self.legislators;
         //NSLog(@"The address passed is %@",legislatorsTableViewController.userAddress);
+        
+        //[legislatorsTableViewController.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            NSLog(@"reloading in segue!!!!!!!!");
+            [legislatorsTableViewController.tableView reloadData];
+        });
     }
     /*
     [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
@@ -55,6 +71,7 @@
             //[legislatorsTableViewController.tableView reloadData];
         }
     }];*/
+    
 
 }
 

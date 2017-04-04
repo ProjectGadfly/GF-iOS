@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "GFTag.h"
 #import "GFScript.h"
+
 @class GFUser;
 
 @interface GFPoli : NSObject

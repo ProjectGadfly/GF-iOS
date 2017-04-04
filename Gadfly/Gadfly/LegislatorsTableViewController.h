@@ -4,6 +4,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SplashPageViewController.h"
+#import "Legislator.h"
+#import "LegislatorTableViewCell.h"
+#import "ApplicationConstraints.m"
+#import "GFPoli.h"
+#import "GFUser.h"
+#import "GFUser.h"
 
 @interface LegislatorsTableViewController : UITableViewController
 @property (strong, nonatomic) NSString* userAddress;

@@ -1,8 +1,5 @@
 #import "ScriptViewController.h"
-#import "LegislatorTableViewCell.h"
-#import "LegislatorsTableViewController.h"
-#import "Legislator.h"
-#import "ApplicationConstraints.m"
+
 
 @interface ScriptViewController ()
 

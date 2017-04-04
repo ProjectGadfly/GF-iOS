@@ -32,7 +32,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
 + (void)fetchPoliWithAddress:(NSString *)address
            completionHandler:(void(^_Nonnull)(NSArray *))completion {
     
-    NSLog(@"Start to fetch Polis!!!!!!!!!!!!!!!!!! THE ADDRESS IS %@",address);
+    //NSLog(@"Start to fetch Polis!!!!!!!!!!!!!!!!!! THE ADDRESS IS %@",address);
     
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
@@ -41,7 +41,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
     components.queryItems = queryItems;
     NSURL *poliURL = components.URL;
     
-    NSLog(@"The url is %@",poliURL);
+    //NSLog(@"The url is %@",poliURL);
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
@@ -60,65 +60,10 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
         NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
-        NSLog(@"%@",result);
+        //NSLog(@"%@",result);
         NSString *status=[result valueForKey:@"Status"];
         if (![status isEqualToString:@"OK"]){
-            NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
-            /*if(callAgain) {
-                //to handle bug where we need to submit address twice to avoid error
-                callAgain = NO;
-                NSLog(@"Second try THE ADDRESS IS %@",address);
-                
-                NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
-                [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
-                
-                NSURLComponents *components = [NSURLComponents componentsWithString:URL];
-                components.queryItems = queryItems;
-                NSURL *poliURL = components.URL;
-                
-                NSLog(@"The url is %@",poliURL);
-                
-                NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
-                [req setHTTPMethod:@"GET"];
-                [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
-                
-                NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    if (error) {
-                        NSLog(@"Fetch State Unseccessful!");
-                        return;
-                    }
-                    if (!(response)){
-                        NSLog(@"No Response!");
-                        return;
-                    }
-                    NSLog(@"Successful!");
-                    NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
-                    NSError *JSONParsingError;
-                    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
-                    NSLog(@"%@",result);
-                    NSString *status=[result valueForKey:@"Status"];
-                    if (![status isEqualToString:@"OK"]){
-                        NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
-                        if(callAgain) {
-                            //to handle bug where we need to submit address twice to avoid error
-                            
-                        }
-                        NSMutableArray *error=[NSMutableArray new];
-                        [error addObject:status];
-                        completion(error);
-                    }
-                    else {
-                        NSMutableArray *arr=[result valueForKey:@"Results"];
-                        for (NSDictionary *entry in arr){
-                            GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
-                            NSLog(@"%@",poli);
-                            [polis addObject:poli];
-                        }
-                        completion(polis);
-                    }
-                }];
-                [task resume];
-            }*/
+            //NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
             NSMutableArray *error=[NSMutableArray new];
             [error addObject:status];
             completion(error);
@@ -127,7 +72,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
             NSMutableArray *arr=[result valueForKey:@"Results"];
             for (NSDictionary *entry in arr){
                 GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
-                NSLog(@"%@",poli);
+                //NSLog(@"%@",poli);
                 [polis addObject:poli];
             }
             completion(polis);

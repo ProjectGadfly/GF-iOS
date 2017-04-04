@@ -4,8 +4,6 @@
  */
 
 #import "GadflyAPI.h"
-#import "ApplicationConstraints.m"
-#import "Legislator.h"
 
 @implementation GadflyAPI
 

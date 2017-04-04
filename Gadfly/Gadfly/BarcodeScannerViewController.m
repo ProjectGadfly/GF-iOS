@@ -1,5 +1,4 @@
 #import "BarcodeScannerViewController.h"
-#import "AppDelegate.h"
 
 @interface BarcodeScannerViewController ()
 

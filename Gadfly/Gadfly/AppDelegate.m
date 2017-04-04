@@ -1,10 +1,5 @@
 #import "AppDelegate.h"
-#import "Legislator.h"
-#import "LegislatorsTableViewController.h"
-#import "LegislatorTableViewCell.h"
-#import "ApplicationConstraints.m"
-#import "GadflyAPI.h"
-#import "BarcodeScannerViewController.h"
+
 
 @interface AppDelegate ()
 

@@ -4,6 +4,8 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "ApplicationConstraints.m"
+#import "Legislator.h"
 
 @interface GadflyAPI : NSObject
 + (NSMutableArray*) GetLegislatorData;

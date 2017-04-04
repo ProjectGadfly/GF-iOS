@@ -3,11 +3,6 @@
  */
 
 #import "LegislatorsTableViewController.h"
-#import "Legislator.h"
-#import "LegislatorTableViewCell.h"
-#import "ApplicationConstraints.m"
-#import "GFPoli.h"
-#import "GFUser.h"
 
 @interface LegislatorsTableViewController ()
 @property (nonatomic, assign) id delegate;
@@ -18,9 +13,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     
     //Call to API
-    [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
+    /*[GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
         if ([arr count]<2) {
             self.errorMsg=arr[0];
         }
@@ -31,12 +27,19 @@
                 [self.tableView reloadData];
             });
         }
-    }];
+    }];*/
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSLog(@"Reload data!!!!!!!!");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 
 }
 
@@ -54,7 +57,7 @@
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //NSLog(@"num legs: %lu", [self.legislators count]);
+    NSLog(@"num legs: %lu", [[GFUser getPolis] count]);
     return [self.legislators count];
 }
 
@@ -63,7 +66,9 @@
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
-    GFPoli *legislator = (self.legislators)[indexPath.row];
+    NSArray *polis=[GFUser getPolis];
+    NSLog(@"Polis!!!!!!!%@",polis);
+    GFPoli *legislator = polis[indexPath.row];
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
     NSString *tagNames=@"";
@@ -79,7 +84,7 @@
         NSLog(@"tag_name!!!!!!!%@",tag_name);
         tagNames=[tagNames stringByAppendingString:tag_name];
         NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
-        tagNames=[tagNames stringByAppendingString:@" "];
+        tagNames=[[tagNames uppercaseString] stringByAppendingString:@" "];
         NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
     NSLog(@"tag!!!!!!!!!%@",tagNames);
@@ -91,6 +96,7 @@
     NSData *image_data = [NSData dataWithContentsOfURL:pic];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
+   
     return cell;
     /*
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
@@ -105,6 +111,7 @@
     cell.legImage.image = image;
     return cell;
   */
+    
 }
 
 /*

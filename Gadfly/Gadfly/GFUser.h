@@ -8,7 +8,10 @@
 
 @property bool initialized;
 
+
 - (GFUser *)init;
++ (void)cachePolis:(NSArray *)polis;
++ (NSArray *)getPolis;
 - (void)reset;
 
 @end
