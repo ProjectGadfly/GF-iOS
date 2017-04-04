@@ -60,7 +60,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
         NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
-        NSLog(@"%@",result);
+        //NSLog(@"%@",result);
         NSString *status=[result valueForKey:@"Status"];
         if (![status isEqualToString:@"OK"]){
             NSLog(@"Error!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -127,7 +127,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
             NSMutableArray *arr=[result valueForKey:@"Results"];
             for (NSDictionary *entry in arr){
                 GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
-                NSLog(@"%@",poli);
+                //NSLog(@"%@",poli);
                 [polis addObject:poli];
             }
             completion(polis);

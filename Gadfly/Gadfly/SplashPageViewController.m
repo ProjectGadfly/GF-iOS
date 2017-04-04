@@ -23,12 +23,14 @@
 }
 
 - (IBAction)submitPressed:(id)sender {
-    self.userAddress = [NSString alloc];
+    //self.userAddress = [NSString alloc];
     NSString *tempAddress = userInput.text;
-    self.userAddress = [tempAddress stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    NSLog(@"%@",self.userAddress);
+    tempAddress = [tempAddress stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    [GFUser cacheAddress:tempAddress];
+    NSLog(@"finished caching address!!!!!!!!!!");
+    //NSLog(@"%@",self.userAddress);
     [userInput endEditing:YES];
-    NSLog(@"Received: %@", self.userAddress);
+    //NSLog(@"Received: %@", self.userAddress);
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -38,7 +40,7 @@
         //NSLog(@"right segue");
         LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
         //NSLog(@"The addresus passing is %@",self.userAddress);
-        legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
+        //legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
         //legislatorsTableViewController.legislators = self.legislators;
         //NSLog(@"The address passed is %@",legislatorsTableViewController.userAddress);
     }

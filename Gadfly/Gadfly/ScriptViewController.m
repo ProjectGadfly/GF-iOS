@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     _legislatorTable.dataSource = self;
     _legislatorTable.delegate = self;
-    self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+   // self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -29,7 +29,7 @@
     
     self.legislatorTable.delegate = self;
 }
-
+/*
 // @brief method to simulate API by connecting to mpls.cx and reading sample json
 // @discussion not currently working
 - (NSMutableArray*)getLegislatorDataFromWebservice
@@ -58,7 +58,7 @@
     NSLog(@"%@", temp_legislators);
     return temp_legislators;
 }
-
+*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,7 +75,7 @@
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //NSLog(@"start num rows method");
-    return [self.legislators count];
+    return [[GFUser getPolis] count];
 }
 
 // @brief method to dequeue and populate custom cells.
@@ -84,11 +84,34 @@
     //NSLog(@"start cell for row method");
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
-    Legislator *legislator = (self.legislators)[indexPath.row];
-    cell.nameLabel.text = legislator.name;
-    cell.phoneLabel.text = legislator.phone;
+    NSArray *polis = [GFUser getPolis];
+    GFPoli *poli = polis[indexPath.row];
+    cell.nameLabel.text = poli.name;
+    cell.phoneLabel.text = poli.phone;
+    cell.partyLabel.text = poli.party;
     
-    NSData *image_data = [NSData dataWithContentsOfURL:legislator.photo_url];
+    NSString *tagNames=@"";
+    
+    NSDictionary *tagDict=[GFTag getTags];
+    for (id tag_id in poli.tags) {
+        NSLog(@"%@",tag_id);
+        //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
+        //NSString *ID = (NSString *)tag_id;
+        //NSLog(@"%@",ID);
+        //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
+        NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
+        tagNames=[@" " stringByAppendingString:tagNames];
+        NSLog(@"tag_name!!!!!!!%@",tag_name);
+        tagNames=[tag_name stringByAppendingString:tagNames];
+        NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
+        
+        NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
+    }
+    NSLog(@"tag!!!!!!!!!%@",tagNames);
+    cell.tagsLabel.text = [tagNames capitalizedString];
+    
+    NSURL *picURL=[NSURL URLWithString:poli.picURL];
+    NSData *image_data = [NSData dataWithContentsOfURL:picURL];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
     return cell;
@@ -102,13 +125,13 @@
     return CELL_HEIGHT;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+/*-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     Legislator *legislator = (self.legislators)[indexPath.row];
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
     NSLog(@"The number is %@", phoneNumber);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-}
+}*/
 
 /*
 #pragma mark - Navigation
@@ -119,5 +142,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
+    GFPoli *poli = [GFUser getPolis][indexPath.row];
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
+    NSLog(@"The number is %@", phoneNumber);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+}
 
 @end

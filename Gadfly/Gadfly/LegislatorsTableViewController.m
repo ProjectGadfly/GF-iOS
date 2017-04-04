@@ -20,14 +20,18 @@
     [super viewDidLoad];
     
     //Call to API
-    [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
+    NSString *address = [GFUser getAddress];
+    NSLog(@"Address is %@",address);
+    [GFPoli fetchPoliWithAddress:address completionHandler: ^void(NSArray *arr){
         if ([arr count]<2) {
             self.errorMsg=arr[0];
         }
         else {
-            self.legislators=arr;
+            NSArray *polis=arr;
+            [GFUser cachePolis:arr];
+            NSLog(@"FirstPolis!!!!!!!!%@",[GFUser getPolis]);
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                NSLog(@"start to reload data!!!!!!!!");
+                //NSLog(@"start to reload data!!!!!!!!");
                 [self.tableView reloadData];
             });
         }
@@ -55,7 +59,7 @@
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //NSLog(@"num legs: %lu", [self.legislators count]);
-    return [self.legislators count];
+    return [[GFUser getPolis] count];
 }
 
 // @brief method to dequeue and populate custom cells.
@@ -63,31 +67,34 @@
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
-    GFPoli *legislator = (self.legislators)[indexPath.row];
-    cell.nameLabel.text = legislator.name;
-    cell.phoneLabel.text = legislator.phone;
+    NSArray *polis = [GFUser getPolis];
+    NSLog(@"Polis!!!!!!!%@",polis);
+    GFPoli *poli = polis[indexPath.row];
+    cell.nameLabel.text = poli.name;
+    cell.phoneLabel.text = poli.phone;
     NSString *tagNames=@"";
     
     NSDictionary *tagDict=[GFTag getTags];
-    for (id tag_id in legislator.tags) {
+    for (id tag_id in poli.tags) {
         NSLog(@"%@",tag_id);
         //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
         //NSString *ID = (NSString *)tag_id;
         //NSLog(@"%@",ID);
         //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
         NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
+        tagNames=[@" " stringByAppendingString:tagNames];
         NSLog(@"tag_name!!!!!!!%@",tag_name);
-        tagNames=[tagNames stringByAppendingString:tag_name];
+        tagNames=[tag_name stringByAppendingString:tagNames];
         NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
-        tagNames=[tagNames stringByAppendingString:@" "];
+        
         NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
     NSLog(@"tag!!!!!!!!!%@",tagNames);
-    cell.tagsLabel.text = tagNames;
+    cell.tagsLabel.text = [tagNames capitalizedString];
     
-    cell.partyLabel.text = legislator.party;
+    cell.partyLabel.text = poli.party;
     
-    NSURL *pic=[NSURL URLWithString:legislator.picURL];
+    NSURL *pic=[NSURL URLWithString:poli.picURL];
     NSData *image_data = [NSData dataWithContentsOfURL:pic];
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
@@ -197,8 +204,8 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
-    Legislator *legislator = (self.legislators)[indexPath.row];
-    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
+    GFPoli *poli = [GFUser getPolis][indexPath.row];
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
     NSLog(@"The number is %@", phoneNumber);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
