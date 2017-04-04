@@ -20,14 +20,18 @@
     [super viewDidLoad];
     
     //Call to API
-    [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
+    NSString *address = [GFUser getAddress];
+    NSLog(@"Address is %@",address);
+    [GFPoli fetchPoliWithAddress:address completionHandler: ^void(NSArray *arr){
         if ([arr count]<2) {
             self.errorMsg=arr[0];
         }
         else {
-            self.legislators=arr;
+            NSArray *polis=arr;
+            [GFUser cachePolis:arr];
+            NSLog(@"FirstPolis!!!!!!!!%@",[GFUser getPolis]);
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                NSLog(@"start to reload data!!!!!!!!");
+                //NSLog(@"start to reload data!!!!!!!!");
                 [self.tableView reloadData];
             });
         }
@@ -55,7 +59,7 @@
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //NSLog(@"num legs: %lu", [self.legislators count]);
-    return [self.legislators count];
+    return [[GFUser getPolis] count];
 }
 
 // @brief method to dequeue and populate custom cells.
@@ -63,7 +67,9 @@
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
-    GFPoli *legislator = (self.legislators)[indexPath.row];
+    NSArray *polis = [GFUser getPolis];
+    NSLog(@"Polis!!!!!!!%@",polis);
+    GFPoli *legislator = polis[indexPath.row];
     cell.nameLabel.text = legislator.name;
     cell.phoneLabel.text = legislator.phone;
     NSString *tagNames=@"";
@@ -197,8 +203,8 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
-    Legislator *legislator = (self.legislators)[indexPath.row];
-    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
+    GFPoli *poli = [GFUser getPolis][indexPath.row];
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
     NSLog(@"The number is %@", phoneNumber);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }

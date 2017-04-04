@@ -10,5 +10,9 @@
 
 - (GFUser *)init;
 - (void)reset;
++ (void)cacheAddress:(NSString *)address;
++ (NSString *)getAddress;
++ (void)cachePolis:(NSArray *)polis;
++ (NSArray *)getPolis;
 
 @end
