@@ -21,6 +21,7 @@
     _legislatorTable.dataSource = self;
     _legislatorTable.delegate = self;
     self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
