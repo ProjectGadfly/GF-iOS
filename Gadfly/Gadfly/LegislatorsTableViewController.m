@@ -10,19 +10,14 @@
 #import "GFUser.h"
 
 @interface LegislatorsTableViewController ()
-
 @property (nonatomic, assign) id delegate;
-
 @end
 
 @implementation LegislatorsTableViewController
-
-
 @synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     //Call to API
     [GFPoli fetchPoliWithAddress:self.userAddress completionHandler: ^void(NSArray *arr){
@@ -35,20 +30,15 @@
                 NSLog(@"start to reload data!!!!!!!!");
                 [self.tableView reloadData];
             });
-
         }
     }];
 
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -64,7 +54,7 @@
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"num legs: %lu", [self.legislators count]);
+    //NSLog(@"num legs: %lu", [self.legislators count]);
     return [self.legislators count];
 }
 
@@ -81,9 +71,11 @@
     NSDictionary *tagDict=[GFTag getTags];
     for (id tag_id in legislator.tags) {
         NSLog(@"%@",tag_id);
-        NSString *ID = (NSString *)tag_id;
-        NSLog(@"%@",ID);
-        NSString *tag_name=[tagDict valueForKey:@"3"];
+        //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
+        //NSString *ID = (NSString *)tag_id;
+        //NSLog(@"%@",ID);
+        //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
+        NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
         NSLog(@"tag_name!!!!!!!%@",tag_name);
         tagNames=[tagNames stringByAppendingString:tag_name];
         NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
