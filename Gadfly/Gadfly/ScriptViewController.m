@@ -112,9 +112,10 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     GFPoli *poli = [GFUser getPolis][indexPath.row];
-    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
-    //NSLog(@"The number is %@", phoneNumber);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    if (poli.phone) {
+        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
+        NSLog(@"The number is %@", poli.phone);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
 }
-
 @end
