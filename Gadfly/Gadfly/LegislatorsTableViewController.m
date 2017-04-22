@@ -186,6 +186,20 @@
         NSLog(@"The number is %@", poli.phone);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     }
+    else {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No phone number"
+                                                                       message:@"This representative does not have a phone number in our database."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
+
+
+
 
 @end
