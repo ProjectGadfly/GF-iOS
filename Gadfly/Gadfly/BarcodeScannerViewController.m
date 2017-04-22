@@ -210,6 +210,7 @@
         NSValue* windowPointValue = [NSValue valueWithCGPoint:transformedPoint];
         location = [NSString stringWithFormat:@"%@ (%f, %f)", location, transformedPoint.x, transformedPoint.y];
         [points addObject:windowPointValue];
+        //[self.capture stop];
     }
     
     
@@ -233,10 +234,14 @@
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     [self.capture stop];
-    
+    [self.capture hard_stop]; 
+    /*
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.capture start];
-    });
+        //if (!result) {
+           // NSLog(@"No result!");
+            [self.capture start];
+        //}
+    });*/
 }
 
 - (void)didReceiveMemoryWarning {
@@ -252,6 +257,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+   /* if ([segue.identifier isEqualToString:@"barcodeScanned"]) {
+        NSLog(@"barcode scannned segue");
+        [self.capture stop];
+        [self.capture hard_stop];
+    }*/
 }
 
 
