@@ -1,64 +1,43 @@
 #import "ScriptViewController.h"
-#import "LegislatorTableViewCell.h"
-#import "LegislatorsTableViewController.h"
-#import "Legislator.h"
-#import "ApplicationConstraints.m"
 
 @interface ScriptViewController ()
 
-@property (nonatomic, assign) id delegate;
-//@property (weak, nonatomic) IBOutlet UITableView *legislatorTable;
+//@property (nonatomic, assign) id delegate;
 
 @end
 
 @implementation ScriptViewController
 
-@synthesize delegate;
+//@synthesize delegate;
 
 - (void)viewDidLoad {
+    // Load the view
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    _legislatorTable.dataSource = self;
-    _legislatorTable.delegate = self;
-   // self.legislators = [self getLegislatorDataFromWebservice]; // uses server call @see getLegislatorDataFromWebservice
+    // Additional setup after loading the view.
+    //_legislatorTable.dataSource = self;
+    //_legislatorTable.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    // Get script id from GFScript class
+    self.scriptID=[GFScript getID];
+    
+    // API Call
+    [GFScript fetchScriptWithID:self.scriptID completionHandler:^(GFScript *script) {
+        self.script=script;
+        // Fill UI elements
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            NSLog(@"Start to reload data on script page");
+            _scriptTitle.text = _script.title;
+            _callScript.text = _script.content;
+        });
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.legislatorTable.delegate = self;
+    //self.legislatorTable.delegate = self;
 }
-/*
-// @brief method to simulate API by connecting to mpls.cx and reading sample json
-// @discussion not currently working
-- (NSMutableArray*)getLegislatorDataFromWebservice
-{
-    //NSLog(@"start webservice method");
-    NSMutableArray *temp_legislators = [NSMutableArray arrayWithCapacity:LEG_ARRAY_SIZE];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://mpls.cx/foo/foo.pl"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [json enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            //NSLog(@"%@", obj);
-            NSDictionary *offices = obj[@"offices"][0]; //Get dict from one element array
-            NSString *current_phone = offices[@"phone"];
-            NSString *current_name = obj[@"full_name"];
-            
-            Legislator *legislator = [[Legislator alloc] init];
-            legislator.name = current_name;
-            legislator.phone = current_phone;
-            legislator.photo_url = [NSURL URLWithString:obj[@"photo_url"]];
-            [temp_legislators addObject:legislator];
-            [self.legislatorTable reloadData];
-        }];
-    }];
-    
-    [dataTask resume];
-    NSLog(@"%@", temp_legislators);
-    return temp_legislators;
-}
-*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,20 +47,18 @@
 
 // @brief Change if multiple sections are wanted.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //NSLog(@"start num sections method");
     return 1;
 }
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //NSLog(@"start num rows method");
+    // CHANGE THIS TO COUNT CACHED POLIS
     return [[GFUser getPolis] count];
 }
 
-// @brief method to dequeue and populate custom cells.
+// @brief Method to dequeue and populate custom cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"start cell for row method");
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
     NSArray *polis = [GFUser getPolis];
@@ -94,20 +71,16 @@
     
     NSDictionary *tagDict=[GFTag getTags];
     for (id tag_id in poli.tags) {
-        NSLog(@"%@",tag_id);
-        //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
-        //NSString *ID = (NSString *)tag_id;
-        //NSLog(@"%@",ID);
-        //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
+        //NSLog(@"%@",tag_id);
         NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
         tagNames=[@" " stringByAppendingString:tagNames];
-        NSLog(@"tag_name!!!!!!!%@",tag_name);
+        //NSLog(@"tag_name!!!!!!!%@",tag_name);
         tagNames=[tag_name stringByAppendingString:tagNames];
-        NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
+        //NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
         
-        NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
+        //NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
-    NSLog(@"tag!!!!!!!!!%@",tagNames);
+   // NSLog(@"tag!!!!!!!!!%@",tagNames);
     cell.tagsLabel.text = [tagNames capitalizedString];
     
     NSURL *picURL=[NSURL URLWithString:poli.picURL];
@@ -117,7 +90,7 @@
     return cell;
 }
 
-/* @brief, hack to fix cell height
+/* @brief hHack to fix cell height
  @discussion Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,17 +98,8 @@
     return CELL_HEIGHT;
 }
 
-/*-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
-    Legislator *legislator = (self.legislators)[indexPath.row];
-    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:legislator.phone];
-    NSLog(@"The number is %@", phoneNumber);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-}*/
-
 /*
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
@@ -143,11 +107,12 @@
 }
 */
 
+// @brief Method to prompt call to legislator if cell is tapped
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     GFPoli *poli = [GFUser getPolis][indexPath.row];
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:poli.phone];
-    NSLog(@"The number is %@", phoneNumber);
+    //NSLog(@"The number is %@", phoneNumber);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 

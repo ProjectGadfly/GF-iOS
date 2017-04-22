@@ -1,11 +1,21 @@
 #import "GFScript.h"
 
+static NSString *idFromQRCode;
+
 static const NSString *idURL = @"http://gadfly.mobi/services/v1/id";
 static const NSString *scriptURL = @"http://gadfly.mobi/services/v1/script";
 static const NSString *APIKey = @"v1key";
 const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFScript
+
++ (void)cacheID:(NSString *)scriptID {
+    idFromQRCode=scriptID;
+}
+
++ (NSString *)getID {
+    return idFromQRCode;
+}
 
 - (GFScript *)initWithDictionary:(NSDictionary *)dict {
     GFScript *script=[GFScript new];
@@ -51,12 +61,12 @@ const NSTimeInterval timeoutInterval = 60.0;
     [task resume];
 }
 
-+ (void)fetchScriptWithID:(NSInteger)ID
++ (void)fetchScriptWithID:(NSString *)ID
         completionHandler:(void(^_Nonnull)(GFScript *))completion {
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     
-    NSString *IDS = [NSString stringWithFormat: @"%ld", ID];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"id" value:IDS]];
+    //NSString *IDS = [NSString stringWithFormat: @"%s", ID];
+    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"id" value:ID]];
     
     NSURLComponents *components = [NSURLComponents componentsWithString:scriptURL];
     components.queryItems = queryItems;
@@ -87,9 +97,11 @@ const NSTimeInterval timeoutInterval = 60.0;
             completion(error);
         }
         else {
+            NSLog(@"Successfully got scrip!!!");
             NSDictionary *scriptData=[NSDictionary new];
             scriptData=[result valueForKey:@"Script"];
             GFScript *script=[[GFScript alloc]initWithDictionary:scriptData];
+            NSLog(@"%@",script.content);
             completion(script);
         }
     }];

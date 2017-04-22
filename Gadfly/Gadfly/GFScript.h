@@ -6,9 +6,13 @@
 
 @interface GFScript : NSObject
 
-@property (nonatomic,strong,nonnull) NSString *title;
-@property (nonatomic,strong,nonnull) NSString *content;
-@property (nonatomic,strong,nullable) NSMutableArray *tags;
+@property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSMutableArray *tags;
+
++ (void)cacheID:(NSString *)scriptID;
+
++ (NSString *)getID;
 
 - (GFScript *)initWithDictionary:(NSDictionary *)dict;
 
@@ -23,7 +27,7 @@
  @discussion Upon Success, this method returns a GFScript Object corresponding to the ID. Upon Failure,
  this method returns a fake GFScript Object whose title contains the error message.
  */
-+ (void)fetchScriptWithID:(NSInteger)ID
++ (void)fetchScriptWithID:(NSString *)ID
         completionHandler:(void(^_Nonnull)(GFScript *))completion;
 
 @end

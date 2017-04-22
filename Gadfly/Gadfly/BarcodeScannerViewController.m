@@ -220,6 +220,15 @@
     
     NSLog(@"Barcode: %@", result.text);
     
+    // Get script ID
+    // NOTE: SCRIPT ID MUST BE THE LAST ELEMENT OF THE QR CODE URL
+    NSArray *urlChunks = [result.text componentsSeparatedByString: @"/"];
+    NSString * scriptID = urlChunks.lastObject;
+    NSLog(@"%@", scriptID);
+    
+    // Initialize script object
+    [GFScript cacheID:scriptID];
+    
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
@@ -236,14 +245,14 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

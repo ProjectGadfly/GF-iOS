@@ -62,13 +62,12 @@
     return [[GFUser getPolis] count];
 }
 
-// @brief method to dequeue and populate custom cells.
+// @brief Method to dequeue and populate custom cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
     
     NSArray *polis = [GFUser getPolis];
-    NSLog(@"Polis!!!!!!!%@",polis);
     GFPoli *poli = polis[indexPath.row];
     cell.nameLabel.text = poli.name;
     cell.phoneLabel.text = poli.phone;
@@ -76,22 +75,11 @@
     
     NSDictionary *tagDict=[GFTag getTags];
     for (id tag_id in poli.tags) {
-        NSLog(@"%@",tag_id);
-        //NSLog(@"it is a string: T/f: %d", [tag_id isKindOfClass:[NSString class]]);
-        //NSString *ID = (NSString *)tag_id;
-        //NSLog(@"%@",ID);
-        //NSLog(@"it is a string: T/f: %d", [ID isKindOfClass:[NSString class]]);
         NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
         tagNames=[@" " stringByAppendingString:tagNames];
-        NSLog(@"tag_name!!!!!!!%@",tag_name);
         tagNames=[tag_name stringByAppendingString:tagNames];
-        NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
-        
-        NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
-    NSLog(@"tag!!!!!!!!!%@",tagNames);
     cell.tagsLabel.text = [tagNames capitalizedString];
-    
     cell.partyLabel.text = poli.party;
     
     NSURL *pic=[NSURL URLWithString:poli.picURL];
@@ -99,19 +87,6 @@
     UIImage *image = [UIImage imageWithData:image_data];
     cell.legImage.image = image;
     return cell;
-    /*
-    LegislatorTableViewCell *cell = (LegislatorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LegislatorCell"];
-    
-    Legislator *legislator = (self.legislators)[indexPath.row];
-    cell.nameLabel.text = legislator.name;
-    cell.phoneLabel.text = legislator.phone;
-    cell.tagsLabel.text = legislator.tags;
-    
-    NSData *image_data = [NSData dataWithContentsOfURL:legislator.photo_url];
-    UIImage *image = [UIImage imageWithData:image_data];
-    cell.legImage.image = image;
-    return cell;
-  */
 }
 
 /*
