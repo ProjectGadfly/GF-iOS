@@ -14,8 +14,8 @@
     // Load the view
     [super viewDidLoad];
     // Additional setup after loading the view.
-    //_legislatorTable.dataSource = self;
-    //_legislatorTable.delegate = self;
+    _legislatorTable.dataSource = self;
+    _legislatorTable.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     // Get script id from GFScript class
@@ -52,7 +52,7 @@
 
 // @brief We want one cell for each legislator.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    // CHANGE THIS TO COUNT CACHED POLIS
+    NSLog(@"number of polis: %ld", [[GFUser getPolis] count]);
     return [[GFUser getPolis] count];
 }
 
@@ -64,6 +64,7 @@
     NSArray *polis = [GFUser getPolis];
     GFPoli *poli = polis[indexPath.row];
     cell.nameLabel.text = poli.name;
+    NSLog(@"Poli: %@", poli.name);
     cell.phoneLabel.text = poli.phone;
     cell.partyLabel.text = poli.party;
     

@@ -6,9 +6,9 @@
 #import "GFScript.h"
 
 
-//@interface ScriptViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ScriptViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@interface ScriptViewController : UIViewController
+//@interface ScriptViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *scriptTitle;
 @property (weak, nonatomic) IBOutlet UITextView *callScript;
 @property (nonatomic, strong) NSMutableArray *legislators;
