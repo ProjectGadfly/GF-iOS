@@ -199,6 +199,8 @@
 
 - (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
     if (!result) return;
+    // Stop capturing barcodes
+    [self.capture hard_stop];
     
     CGAffineTransform inverse = CGAffineTransformInvert(_captureSizeTransform);
     NSMutableArray *points = [[NSMutableArray alloc] init];
@@ -212,7 +214,6 @@
         [points addObject:windowPointValue];
         //[self.capture stop];
     }
-    
     
     // We got a result. Display information about the result onscreen.
     NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
@@ -233,15 +234,16 @@
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
-    [self.capture stop];
-    [self.capture hard_stop]; 
-    /*
+    //[self.capture stop];
+    
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         //if (!result) {
            // NSLog(@"No result!");
-            [self.capture start];
+           // [self.capture start];
         //}
-    });*/
+        [self.capture hard_stop];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -257,12 +259,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-   /* if ([segue.identifier isEqualToString:@"barcodeScanned"]) {
+   if ([segue.identifier isEqualToString:@"barcodeScanned"]) {
         NSLog(@"barcode scannned segue");
-        [self.capture stop];
         [self.capture hard_stop];
-    }*/
+   }
 }
-
 
 @end
