@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -323,13 +324,14 @@ Script provided by: https://www.istandwithpp.org/call/gorsuch</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="project_gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="bH8-89-L5v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="project_gadfly" translatesAutoresizingMaskIntoConstraints="NO" id="bH8-89-L5v">
                                 <rect key="frame" x="16" y="168" width="332" height="266"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bH8-89-L5v" secondAttribute="height" multiplier="166:133" id="Snj-WM-2oj"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-o7-co9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-o7-co9">
                                 <rect key="frame" x="15" y="72" width="221" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="About us">
                                         <attributes>
@@ -340,23 +342,36 @@ Script provided by: https://www.istandwithpp.org/call/gorsuch</string>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="projectgadfly1@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-Ce-3Mi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="projectgadfly1@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-Ce-3Mi">
                                 <rect key="frame" x="16" y="129" width="203" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-s3-8xN">
-                                <rect key="frame" x="15" y="451" width="343" height="196"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-s3-8xN">
+                                <rect key="frame" x="15" y="433" width="333" height="196"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N3h-s3-8xN" secondAttribute="height" multiplier="333:196" id="Rce-Iw-oTq"/>
+                                </constraints>
                                 <string key="text">Project Gadfly is a group of Grinnell students, alumni, and other volunteers who seek to help residents of the United States identify and contact their representatives. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bH8-89-L5v" firstAttribute="top" secondItem="pNn-Ce-3Mi" secondAttribute="bottom" constant="18" id="0XG-zc-67J"/>
+                            <constraint firstItem="UwU-o7-co9" firstAttribute="top" secondItem="DqA-zy-Pnw" secondAttribute="bottom" constant="8" id="2M0-eH-kcG"/>
+                            <constraint firstItem="N3h-s3-8xN" firstAttribute="leading" secondItem="UwU-o7-co9" secondAttribute="leading" id="6kB-fO-iMu"/>
+                            <constraint firstItem="bH8-89-L5v" firstAttribute="leading" secondItem="UwU-o7-co9" secondAttribute="leading" id="9uH-za-Sha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bH8-89-L5v" secondAttribute="trailing" constant="11" id="HYp-dp-hND"/>
+                            <constraint firstItem="N3h-s3-8xN" firstAttribute="top" secondItem="bH8-89-L5v" secondAttribute="bottom" constant="17" id="PPy-hz-sZT"/>
+                            <constraint firstItem="UwU-o7-co9" firstAttribute="leading" secondItem="TI1-eC-rVE" secondAttribute="leadingMargin" constant="-1" id="dxG-gN-sS3"/>
+                            <constraint firstItem="pNn-Ce-3Mi" firstAttribute="top" secondItem="UwU-o7-co9" secondAttribute="bottom" constant="-11" id="lZQ-7W-AOV"/>
+                            <constraint firstItem="pNn-Ce-3Mi" firstAttribute="leading" secondItem="UwU-o7-co9" secondAttribute="leading" id="var-n7-bgH"/>
+                            <constraint firstItem="N3h-s3-8xN" firstAttribute="trailing" secondItem="bH8-89-L5v" secondAttribute="trailing" id="zIV-yi-3Yr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Gadfly" id="aca-Fm-ENc"/>
                 </viewController>
