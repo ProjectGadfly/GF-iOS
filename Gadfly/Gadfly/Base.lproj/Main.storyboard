@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-BZ-JgK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-BZ-JgK">
                                 <rect key="frame" x="87" y="278" width="201" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="GADFLY">
                                         <attributes>
@@ -33,19 +33,14 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asS-qd-hgT">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asS-qd-hgT">
                                 <rect key="frame" x="159" y="406" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRG-Ce-gWD"/>
                                     <segue destination="oVA-76-NHO" kind="show" identifier="showLegislators" id="OUX-kD-3bm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gadfly_logo" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
-                                <rect key="frame" x="64" y="116" width="247" height="167"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2h-SS-zbE">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -57,15 +52,31 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1115 8th Avenue, Grinnell IA 50112" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c80-FT-Z8R">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1115 8th Avenue, Grinnell IA 50112" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c80-FT-Z8R">
                                 <rect key="frame" x="67" y="354" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gadfly_logo" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-RU-kp3">
+                                <rect key="frame" x="104" y="115" width="167" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="ZcW-Cr-24F"/>
+                                    <constraint firstAttribute="width" secondItem="x6P-RU-kp3" secondAttribute="height" multiplier="1:1" id="jn7-cC-pFc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c0e-BZ-JgK" firstAttribute="top" secondItem="x6P-RU-kp3" secondAttribute="bottom" constant="-4" id="7Ow-px-XIz"/>
+                            <constraint firstItem="x6P-RU-kp3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="52" id="Fum-7q-ON9"/>
+                            <constraint firstItem="x6P-RU-kp3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kyo-h1-bD9"/>
+                            <constraint firstItem="asS-qd-hgT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QSR-WS-YCP"/>
+                            <constraint firstItem="c80-FT-Z8R" firstAttribute="top" secondItem="c0e-BZ-JgK" secondAttribute="bottom" constant="8" id="QlR-Kx-4aO"/>
+                            <constraint firstItem="c0e-BZ-JgK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="imF-6t-xew"/>
+                            <constraint firstItem="c80-FT-Z8R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r4B-Rj-6Cx"/>
+                            <constraint firstItem="asS-qd-hgT" firstAttribute="top" secondItem="c80-FT-Z8R" secondAttribute="bottom" constant="22" id="ykk-6d-X47"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6pV-96-gRD"/>
                     <connections>
