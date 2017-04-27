@@ -28,7 +28,11 @@
         dispatch_async(dispatch_get_main_queue(), ^(void){
             NSLog(@"Start to reload data on script page");
             _scriptTitle.text = _script.title;
+            NSLog(@"title %@", _script.title);
             _callScript.text = _script.content;
+            NSLog(@"content %@", _script.content);
+            if(_script.tags)
+                NSLog(@"Tags %@", _script.tags[0]);
         });
         
     }];

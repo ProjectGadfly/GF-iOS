@@ -208,44 +208,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9e-St-Xd3">
-                                <rect key="frame" x="0.0" y="122" width="375" height="245"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9e-St-Xd3">
+                                <rect key="frame" x="0.0" y="115" width="375" height="222"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="222" id="fhd-WN-hFd"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Hi, my name is ____________ and I live in _____________.
 
-I'm calling to ask ____________ to vote NO on Judge Neil Gorsuch’s nomination to the U.S. Supreme Court.
+I'm calling to ask ____________ to ...
 
-I’m extremely alarmed by Judge Gorsuch’s history of interfering with reproductive rights, including access to birth control and care at Planned Parenthood. Gorsuch has ruled in favor of the idea that corporations are people and a woman's employer should be able to decide whether or not she has access to birth control. I do not trust him to uphold my fundamental rights, including the right to access abortion.  
+[Include any personal information or stories you think may influence your representative's vote here!]
 
-[Include any personal information or stories you think may influence your senator's vote here!]
-
-I'm counting on my senator to do the right thing and vote no on his nomination.
+I'm counting on my representative to do the right thing.
 
 Thank you for your time.
 
 [Name] 
-
-Script provided by: https://www.istandwithpp.org/call/gorsuch</string>
+</string>
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied]">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O23-nS-R2a">
-                                <rect key="frame" x="0.0" y="375" width="375" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O23-nS-R2a">
+                                <rect key="frame" x="0.0" y="345" width="375" height="322"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LegislatorCell" rowHeight="120" id="1yq-rv-EQk" customClass="LegislatorTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1yq-rv-EQk" id="3Sf-u4-gT8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_outline" translatesAutoresizingMaskIntoConstraints="NO" id="Rqu-WT-V5d">
@@ -307,19 +321,25 @@ Script provided by: https://www.istandwithpp.org/call/gorsuch</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This script applies to: State Senators (Iowa)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-uK-CbZ">
-                                <rect key="frame" x="38" y="64" width="298" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This script applies to: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-uK-CbZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="W7T-zI-ohE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-IJ-9IF">
-                                <rect key="frame" x="39" y="93" width="296" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-IJ-9IF">
+                                <rect key="frame" x="0.0" y="85" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KgF-rW-X6N"/>
+                                </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="VOTE NO ON GORSUCH">
+                                    <fragment content="SCRIPT TITLE">
                                         <attributes>
-                                            <font key="NSFont" size="24" name="Copperplate"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <font key="NSFont" size="28" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -328,11 +348,19 @@ Script provided by: https://www.istandwithpp.org/call/gorsuch</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2W7-IJ-9IF" firstAttribute="top" secondItem="ENq-uK-CbZ" secondAttribute="bottom" constant="8" id="DoS-ex-SKJ"/>
-                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="top" secondItem="2Hi-DO-hH7" secondAttribute="bottom" id="HBY-IM-T6M"/>
-                            <constraint firstItem="2W7-IJ-9IF" firstAttribute="centerX" secondItem="WCx-aD-Jcj" secondAttribute="centerX" id="JbW-vC-pyb"/>
-                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="centerX" secondItem="WCx-aD-Jcj" secondAttribute="centerX" id="TAc-A7-CsP"/>
-                            <constraint firstItem="P9e-St-Xd3" firstAttribute="top" secondItem="2W7-IJ-9IF" secondAttribute="bottom" constant="8" id="yhL-3J-YEy"/>
+                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="top" secondItem="2Hi-DO-hH7" secondAttribute="bottom" id="0LL-1J-eJo"/>
+                            <constraint firstItem="2W7-IJ-9IF" firstAttribute="top" secondItem="ENq-uK-CbZ" secondAttribute="bottom" id="7ZW-KA-s29"/>
+                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="trailing" secondItem="2W7-IJ-9IF" secondAttribute="trailing" id="7ub-dK-eoF"/>
+                            <constraint firstItem="P9e-St-Xd3" firstAttribute="trailing" secondItem="O23-nS-R2a" secondAttribute="trailing" id="CWi-Gt-paC"/>
+                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="leading" secondItem="WCx-aD-Jcj" secondAttribute="leading" id="FQJ-Xw-TgT"/>
+                            <constraint firstItem="O23-nS-R2a" firstAttribute="top" secondItem="P9e-St-Xd3" secondAttribute="bottom" constant="8" symbolic="YES" id="JO3-q4-F50"/>
+                            <constraint firstItem="ENq-uK-CbZ" firstAttribute="leading" secondItem="2W7-IJ-9IF" secondAttribute="leading" id="U18-6a-JJZ"/>
+                            <constraint firstItem="P9e-St-Xd3" firstAttribute="leading" secondItem="O23-nS-R2a" secondAttribute="leading" id="VZC-ol-bJe"/>
+                            <constraint firstItem="P9e-St-Xd3" firstAttribute="top" secondItem="2W7-IJ-9IF" secondAttribute="bottom" id="WxM-8i-H0s"/>
+                            <constraint firstItem="2W7-IJ-9IF" firstAttribute="trailing" secondItem="P9e-St-Xd3" secondAttribute="trailing" id="ZIu-6e-aFU"/>
+                            <constraint firstAttribute="trailing" secondItem="ENq-uK-CbZ" secondAttribute="trailing" id="fLB-lS-y6M"/>
+                            <constraint firstItem="2W7-IJ-9IF" firstAttribute="leading" secondItem="P9e-St-Xd3" secondAttribute="leading" id="fRK-2d-7OD"/>
+                            <constraint firstItem="O23-nS-R2a" firstAttribute="bottom" secondItem="Ffw-M6-gMS" secondAttribute="top" id="o7o-A5-JT9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Call Script" id="Cnl-Cu-Gt7"/>
