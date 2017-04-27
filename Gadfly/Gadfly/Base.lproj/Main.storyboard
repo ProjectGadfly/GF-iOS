@@ -321,7 +321,7 @@ Cg
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This script applies to: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-uK-CbZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This script applies to:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-uK-CbZ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="W7T-zI-ohE"/>
@@ -367,6 +367,7 @@ Cg
                     <connections>
                         <outlet property="callScript" destination="P9e-St-Xd3" id="agx-KN-f5k"/>
                         <outlet property="legislatorTable" destination="O23-nS-R2a" id="ckt-S6-W0b"/>
+                        <outlet property="scriptTags" destination="ENq-uK-CbZ" id="Gck-dy-4v5"/>
                         <outlet property="scriptTitle" destination="2W7-IJ-9IF" id="9nM-2D-j9s"/>
                     </connections>
                 </viewController>

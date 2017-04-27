@@ -31,8 +31,19 @@
             NSLog(@"title %@", _script.title);
             _callScript.text = _script.content;
             NSLog(@"content %@", _script.content);
-            if(_script.tags)
-                NSLog(@"Tags %@", _script.tags[0]);
+            // If there are tags, unwrap them
+            if(_script.tags){
+                NSDictionary *tagDict=[GFTag getTags];
+                NSString *tagNames=@"";
+                for (id tag_id in _script.tags) {
+                    NSString *tag_name=[tagDict valueForKey:[NSString stringWithFormat:@"%@",tag_id]];
+                    tagNames=[tagNames stringByAppendingString:@" "];
+                    tagNames=[tagNames stringByAppendingString:tag_name];
+                }
+                tagNames=[tagNames stringByAppendingString:@"s"]; //Pluralize
+                _scriptTags.text = [_scriptTags.text stringByAppendingString:[tagNames capitalizedString]];
+
+            }
         });
         
     }];
@@ -83,7 +94,7 @@
         tagNames=[tag_name stringByAppendingString:tagNames];
         //NSLog(@"tagnames first!!!!!!!!!!%@",tagNames);
         
-        //NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
+        NSLog(@"tagnames!!!!!!!!!!%@",tagNames);
     }
    // NSLog(@"tag!!!!!!!!!%@",tagNames);
     cell.tagsLabel.text = [tagNames capitalizedString];
@@ -95,7 +106,7 @@
     return cell;
 }
 
-/* @brief hHack to fix cell height
+/* @brief Hack to fix cell height
  @discussion Cell height is currently hard-coded, cell height should eventually be determined by amount of content in the cell
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
