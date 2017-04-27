@@ -38,7 +38,7 @@
     //NSLog(@"Start new segue method");
     if ([segue.identifier isEqualToString:@"showLegislators"]) {
         //NSLog(@"right segue");
-        LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
+        //LegislatorsTableViewController *legislatorsTableViewController = [segue destinationViewController];
         //NSLog(@"The addresus passing is %@",self.userAddress);
         //legislatorsTableViewController.userAddress = self.userAddress; // MUST DELETE USER ADDRESS FOR SECURITY
         //legislatorsTableViewController.legislators = self.legislators;
