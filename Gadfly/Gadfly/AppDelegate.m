@@ -5,6 +5,9 @@
 #import "ApplicationConstraints.m"
 #import "GadflyAPI.h"
 #import "BarcodeScannerViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -32,6 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Put result from API call into local storage
     _legislatorData = [GadflyAPI GetLegislatorData];
+    [Fabric with:@[[Crashlytics class]]];
     
     // Set up table for legislator page
     [self prepareLegislatorTable]; // empty method, may not be needed

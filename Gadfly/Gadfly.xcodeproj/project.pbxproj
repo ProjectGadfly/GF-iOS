@@ -265,6 +265,7 @@
 				BF65F2E41E8046F5007624E9 /* Resources */,
 				E1933E2BB898918F7A27DBD6 /* [CP] Embed Pods Frameworks */,
 				E4912E563413F2CCE02DBDB9 /* [CP] Copy Pods Resources */,
+				AA4DC2A11EB2D17E002706AA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -467,6 +468,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AA4DC2A11EB2D17E002706AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a9b2838affb1d5f3b67562ef73613d656203d2e0 7d879cde9177f658d1b059663a51833afc6f5344598b0cf7d2a63e67d6e043ab";
 		};
 		D117FD763BFA24E8D239E923 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
